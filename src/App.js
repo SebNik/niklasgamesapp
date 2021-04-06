@@ -1,5 +1,5 @@
 import React from 'react';
-import Game from './components/Game'
+import TicTacToeGame from './games/tic_tac_toe/Game'
 import './App.css';
 import {BrowserRouter, NavLink} from "react-router-dom";
 import Route from "react-router-dom/Route"
@@ -20,7 +20,7 @@ function App() {
                     }
                 }/>
 
-                <Route  path="/ticktacktoe" exact ={true} component={Game}/>
+                <Route  path="/tictactoe" exact ={true} component={TicTacToeGame}/>
 
             </div>
         </BrowserRouter>
