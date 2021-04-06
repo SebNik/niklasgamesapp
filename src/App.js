@@ -10,11 +10,14 @@ function App() {
         <BrowserRouter>
             <div className="layout">
 
+                <Route  path="/games" exact ={true} component={About}/>
+
                 <Route  path="/about" exact ={true} component={About}/>
-                <NavLink strict exact to="/about">About</NavLink>
+                {/*<NavLink strict exact to="/about">About</NavLink>*/}
 
                 <Route  path="/tictactoe" exact ={true} component={TicTacToeGame}/>
-                <NavLink strict exact to="/tictactoe">TicTacToe Game</NavLink>
+                {/*<NavLink strict exact to="/tictactoe">TicTacToe Game</NavLink>*/}
+
             </div>
         </BrowserRouter>
     );
