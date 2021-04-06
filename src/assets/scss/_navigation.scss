@@ -1,3 +1,27 @@
 .site-navigation {
+  height: 65px;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  color: $text-color;
 
+  span {
+    font-size: 24px;
+    display: flex;
+    font-weight: 400;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  ul {
+    height: 100%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+    display: flex;
+    list-style-type: none;
+    margin-right: 20px;
+  }
 }
