@@ -21,7 +21,7 @@ function App() {
                 }/>
 
                 <Route  path="/tictactoe" exact ={true} component={TicTacToeGame}/>
-
+                <NavLink strict exact to="/tictactoe">TicTacToe Game</NavLink>
             </div>
         </BrowserRouter>
     );
