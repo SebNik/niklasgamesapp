@@ -2,7 +2,7 @@ import React from "react";
 import {useRouteMatch} from 'react-router-dom'
 
 const generatePage = game => {
-    const component = () => require(`./${game}`).default
+    const component = () => require(`../games_all/${game}`).default
 
     try {
         return React.createElement(component())
