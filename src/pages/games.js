@@ -1,7 +1,6 @@
 // this page will give an overview over all the games on the page
 import React from "react";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
-import Tictactoe from "../games_all/tictactoe";
 
 const navLinks = [
     {
@@ -16,7 +15,14 @@ export default function games () {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact strict path='/games/tictactoe'><Tictactoe/> </Route>
+                {navLinks.map((link) => {
+                    const Component = require(`../games_all/${link.component}`).default
+                    return <Route exact strict path={link.path}> <Component/> </Route>
+
+                })
+                }
+                {/*<Route exact strict path='/games/tictactoe'><Tictactoe/> </Route>*/}
+
                 <ul>
                     {navLinks.map((link, index) => (
                         <li key={index}>
