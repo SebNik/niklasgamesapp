@@ -6,7 +6,7 @@ const navLinks = [
     {
         title: 'TicTacToe',
         path: '/games/tictactoe',
-        component: 'tictactoe'
+        component: 'Tictactoe'
     }
 ]
 
