@@ -10,10 +10,8 @@ const pStyle = {
     color: 'green'
 }
 
-export default function tictactoe() {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Tictactoe() {
     const [layout, setLayout] = useState(Array(9).fill(null));
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [xIsNext, setXisNext] = useState(true);
     const winner = checkWinner(layout)
 
