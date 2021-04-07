@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { checkWinner } from './Logic';
-import Layout from './Layout';
+import { checkWinner } from './tic_tac_toe/Logic';
+import Layout from './tic_tac_toe/Layout';
 
 const styles = {
     width: '200px',
@@ -10,7 +10,7 @@ const pStyle = {
     color: 'green'
 }
 
-function Game() {
+function Tic_tac_toe() {
     const [layout, setLayout] = useState(Array(9).fill(null));
     const [xIsNext, setXisNext] = useState(true);
     const winner = checkWinner(layout)
@@ -36,4 +36,4 @@ function Game() {
         </React.Fragment>
     )
 }
-export default Game;
+export default Tic_tac_toe;
