@@ -1,12 +1,12 @@
 // this page will give an overview over all the games on the page
 import React from "react";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
-import GameRenderer from "../component/game-renderer";
+import GameRenderer from "./game-renderer";
 
 const navLinks = [
     {
-        title: 'TicTacToe',
-        path: '/games/tic_tac_toe'
+        title: 'Tic',
+        path: '/games/tic'
     }
 ]
 

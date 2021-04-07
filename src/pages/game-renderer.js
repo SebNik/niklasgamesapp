@@ -1,8 +1,8 @@
 import React from "react";
 import {useRouteMatch} from 'react-router-dom'
 
-const generatePage = page => {
-    const component = () => require(`../games/${page}`).default
+const generatePage = game => {
+    const component = () => require(`./${game}`).default
 
     try {
         return React.createElement(component())
@@ -14,8 +14,8 @@ const generatePage = page => {
 
 export default function GameRenderer() {
     const {
-        params: {page}
+        params: {game}
     } = useRouteMatch()
 
-    return generatePage(page)
+    return generatePage(game)
 }

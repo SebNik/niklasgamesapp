@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { checkWinner } from './tic_tac_toe/Logic';
-import Layout from './tic_tac_toe/Layout';
+import { checkWinner } from './games_all/tic_tac_toe/Logic';
+import Layout from './games_all/tic_tac_toe/Layout';
 
 const styles = {
     width: '200px',
@@ -10,8 +10,10 @@ const pStyle = {
     color: 'green'
 }
 
-function Tic_tac_toe() {
+export default function tic() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [layout, setLayout] = useState(Array(9).fill(null));
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [xIsNext, setXisNext] = useState(true);
     const winner = checkWinner(layout)
 
@@ -36,4 +38,3 @@ function Tic_tac_toe() {
         </React.Fragment>
     )
 }
-export default Tic_tac_toe;
