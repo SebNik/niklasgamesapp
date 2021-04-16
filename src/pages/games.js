@@ -20,9 +20,9 @@ export default function games() {
     return (
         <BrowserRouter>
             <Switch>
-                {navLinks.map((link) => {
+                {navLinks.map((link, index) => {
                     const Component = require(`../games_all/${link.component}`).default
-                    return <Route exact strict path={link.path}> <Component/> </Route>
+                    return <Route key={index} exact strict path={link.path}> <Component/> </Route>
                 })}
                 <ul>
                     {navLinks.map((link, index) => (

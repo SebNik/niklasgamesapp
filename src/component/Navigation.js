@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {ReactComponent as Icon} from "../assets/images/game_icon.svg"
 
 const navLinks = [
     {
@@ -23,7 +24,10 @@ const navLinks = [
 export default function Navigation() {
     return (
         <nav className="site-navigation">
-            <span>Niklas Games</span>
+            <span>
+                <Icon />
+                <p> Niklas Games </p>
+            </span>
             <ul>
                 {navLinks.map((link, index) => (
                     <li key={index}>
