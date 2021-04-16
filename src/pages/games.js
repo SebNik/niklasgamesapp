@@ -7,6 +7,11 @@ const navLinks = [
         title: 'TicTacToe',
         path: '/games/tictactoe',
         component: 'Tictactoe'
+    },
+    {
+        title: 'ClickTest',
+        path: '/games/ClickTest',
+        component: 'ClickTest'
     }
 ]
 
