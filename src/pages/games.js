@@ -9,9 +9,9 @@ const navLinks = [
         component: 'Tictactoe'
     },
     {
-        title: 'ClickTest',
-        path: '/games/ClickTest',
-        component: 'ClickTest'
+        title: 'Clicker',
+        path: '/games/Clicker',
+        component: 'Clicker'
     }
 ]
 

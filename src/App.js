@@ -11,7 +11,7 @@ function App() {
             <div className="App">
                 <Navigation/>
                 <Switch>
-                    <Route exact path="/:page" component={PageRenderer}/>
+                    <Route exact strict path="/:page" component={PageRenderer}/>
                     <Route path="/" render={() => <Redirect to="/home" />} />
                     <Route component={() => 404} />
                 </Switch>

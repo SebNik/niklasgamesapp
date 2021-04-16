@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Example() {
+export default function Clicker() {
     // Declare a new state variable, which we'll call "count"
     const [count, setCount] = useState(0);
 
