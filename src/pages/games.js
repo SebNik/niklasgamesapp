@@ -12,6 +12,11 @@ const navLinks = [
         title: 'Clicker',
         path: '/games/Clicker',
         component: 'Clicker'
+    },
+    {
+        title: 'FlappyBird',
+        path: '/games/flappybird',
+        component: 'flappybird'
     }
 ]
 
