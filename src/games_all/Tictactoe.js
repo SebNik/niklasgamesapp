@@ -33,7 +33,6 @@ export default function Tictactoe() {
             <div className={"tictactoe"}>
                 <p>{message}</p>
                 <button onClick={newGame}> New Game </button>
-
             </div>
         </React.Fragment>
     )
