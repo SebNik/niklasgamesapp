@@ -16,3 +16,24 @@
   cursor: crosshair;
   outline: none;
 }
+
+.tictactoe {
+  width: 200px;
+  margin: 20px auto;
+
+  p{
+    color: black;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  button {
+    background-color: lightgray;
+    font-size: 18px;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+  }
+}

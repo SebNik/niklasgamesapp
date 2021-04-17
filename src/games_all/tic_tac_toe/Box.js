@@ -9,12 +9,3 @@ export default function Box({value, onClick}) {
         </button>
     );
 }
-
-// const style = {
-//     background: '#fff',
-//     border: '2px solid lightblue',
-//     fontSize: '30px',
-//     fontWeight: '800',
-//     cursor: 'pointer',
-//     outline: 'none'
-// }

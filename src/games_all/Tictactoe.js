@@ -2,18 +2,10 @@ import React, { useState } from 'react';
 import { checkWinner } from './tic_tac_toe/Logic';
 import Layout from './tic_tac_toe/Layout';
 
-const styles = {
-    width: '200px',
-    margin: '20px auto',
-};
-const pStyle = {
-    color: 'green'
-}
-
 export default function Tictactoe() {
     const [layout, setLayout] = useState(Array(9).fill(null));
     const [xIsNext, setXisNext] = useState(true);
-    const winner = checkWinner(layout)
+    const winner = checkWinner(layout);
 
     const handleClick = (i) => {
         const layoutState = [...layout];
@@ -23,13 +15,24 @@ export default function Tictactoe() {
         setXisNext(!xIsNext);
     }
 
+    const newGame = () => {
+        console.log("Starting a new game")
+        setLayout(Array(9).fill(null))
+    }
+
+    let message = "";
+    if (winner){
+        message = "Winner: " + winner;
+    } else {
+        message = "Next Player: " + (xIsNext ? "X" : "O")
+    }
+
     return (
         <React.Fragment>
             <Layout boxes={layout} onClick={handleClick} />
-            <div style={styles}>
-                <p style={pStyle}>
-                    {winner ? 'Winner: ' + winner : 'Next Player ' + (xIsNext ? 'X' : 'O')}
-                </p>
+            <div className={"tictactoe"}>
+                <p>{message}</p>
+                <button onClick={newGame}> New Game </button>
 
             </div>
         </React.Fragment>
