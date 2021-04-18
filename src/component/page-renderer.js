@@ -6,12 +6,6 @@ import dynamic from 'next/dynamic'
 const generatePage = page => {
     const Component = dynamic(() => import(`../pages/${page}`), { loading: () => <p>...</p> })
     return <Component/>
-    // try {
-    //     return <Component/>
-    // } catch (err) {
-    //     console.warn(err)
-    //     return React.createElement(() => 404)
-    // }
 }
 
 export default function PageRenderer() {
