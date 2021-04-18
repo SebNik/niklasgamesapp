@@ -1,11 +1,13 @@
 import React from "react";
 import {useRouteMatch} from 'react-router-dom'
+import dynamic from 'next/dynamic'
+
 
 const generatePage = page => {
-    const component = () => require(`../pages/${page}.js`).default
+    const Component = dynamic(() => import(`../pages/${page}`))
 
     try {
-        return React.createElement(component())
+        return <Component/>
     } catch (err) {
         console.warn(err)
         return React.createElement(() => 404)
