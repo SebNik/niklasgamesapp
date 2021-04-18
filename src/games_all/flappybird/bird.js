@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-export default function Bird() {
+export default function Bird(props) {
 
-    const [height, setHeight] = useState(0);
+    let { status, height = 0, isFlying } = props
 
     let style = {
         transform: `translate(0, ${-height}px)`

@@ -21,7 +21,7 @@ const navLinks = [
 ]
 
 
-export default function games() {
+export default function Games() {
     return (
         <BrowserRouter>
             <Switch>

@@ -4,6 +4,8 @@ import Bird from "./flappybird/bird";
 export default function FlappyBird() {
 
     return (
-        <Bird />
+        <div className={"flappy-bird"}>
+            <Bird />
+        </div>
     )
 }
