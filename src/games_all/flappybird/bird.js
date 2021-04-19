@@ -1,13 +1,14 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react'
+import React from 'react'
+import {useSelector} from "react-redux";
 
-export default function Bird(props) {
+const selectHeight = state => state.bird.height
 
-    // eslint-disable-next-line no-unused-vars
-    let { status, height = 0 } = props
+export default function Bird() {
+
+    const height = useSelector(selectHeight)
 
     let style = {
-        transform: `translate(0, ${-height}px)`
+        transform: `translate(0, ${height}px)`
     }
 
     return (

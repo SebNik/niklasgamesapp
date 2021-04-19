@@ -14,7 +14,6 @@ export default function FlappyBird() {
         <Provider store={store}>
             <div className={"flappy-bird"}>
                 <Bird />
-                <button onClick={() => console.log(store.getState())} > Get the current state </button>
             </div>
         </Provider>
     )
