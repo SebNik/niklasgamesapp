@@ -7,7 +7,7 @@ import store from "./flappybird/store/flappybird_store.js"
 export default function FlappyBird() {
 
     console.log('Initial state: ', store.getState())
-    store.dispatch({ type: 'bird/falling' })
+    setInterval(() => {store.dispatch({ type: 'bird/falling' })}, 500)
 
     const handler = () => {
         console.log("Fly UP !!")
@@ -16,7 +16,7 @@ export default function FlappyBird() {
 
     return (
         <Provider store={store}>
-            <div onClick={handler} className={"flappy-bird"} id={"game"}>
+            <div onClick={handler} className={"screen-flappy-bird"} id={"game"}>
                 <Bird />
             </div>
         </Provider>

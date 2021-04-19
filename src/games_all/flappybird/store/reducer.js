@@ -18,7 +18,7 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 bird: {
                     status: 'falling',
-                    height: state.bird.height - 2,
+                    height: state.bird.height + 2,
                 }
             }
 
