@@ -31,7 +31,6 @@ export default function reducer(state = initialState, action) {
                     height: state.bird.height - 20,
                 }
             }
-
         }
         default:
             return state;
