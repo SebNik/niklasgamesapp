@@ -1,6 +1,17 @@
-import initialState from './initialState'
+// import initialState from './initialState'
 
-export default function todosReducer(state = initialState, action) {
+const initialState = {
+    game: {
+        status: 'over',
+    },
+    bird: {
+        status: 'normal',
+            height: 188,
+            startHeight: 188,
+    }
+}
+
+export default function reducer(state = initialState, action) {
     switch (action.type) {
         case 'bird/falling': {
             // Can return just the new todos array - no extra object around it
