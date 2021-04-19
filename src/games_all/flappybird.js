@@ -7,6 +7,8 @@ import store from "./flappybird/store/flappybird_store.js"
 export default function FlappyBird() {
 
     console.log('Initial state: ', store.getState())
+    store.dispatch({ type: 'bird/falling' })
+
 
     return (
         // <Provider store={store}>
