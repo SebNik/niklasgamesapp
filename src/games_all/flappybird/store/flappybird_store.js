@@ -1,7 +1,6 @@
 import {applyMiddleware, createStore} from "redux"
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import preloadedState from "./initialState"
 import loggerMiddleware from '../middleware/logger'
 import rootReducer from './reducer'
 

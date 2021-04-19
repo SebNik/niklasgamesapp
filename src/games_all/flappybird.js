@@ -9,10 +9,14 @@ export default function FlappyBird() {
     console.log('Initial state: ', store.getState())
     store.dispatch({ type: 'bird/falling' })
 
+    const handler = () => {
+        console.log("Fly UP !!")
+        store.dispatch({ type: 'bird/flyup' })
+    }
 
     return (
         <Provider store={store}>
-            <div className={"flappy-bird"}>
+            <div onClick={handler} className={"flappy-bird"} id={"game"}>
                 <Bird />
             </div>
         </Provider>

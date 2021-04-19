@@ -18,8 +18,17 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 bird: {
                     status: 'falling',
-                        height: state.bird.height - 20,
-                        startHeight: 188,
+                    height: state.bird.height - 2,
+                }
+            }
+
+        }
+        case 'bird/flyup': {
+            return {
+                ...state,
+                bird: {
+                    status: 'flyup',
+                    height: state.bird.height - 20,
                 }
             }
 
