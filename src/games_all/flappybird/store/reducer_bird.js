@@ -1,6 +1,7 @@
 // this reducer will handle everything with the bird
 import initialState from './initialState'
 
+
 export default function reducer_bird(state = initialState.bird, action) {
     switch (action.type) {
         case 'bird/falling': {
@@ -12,11 +13,17 @@ export default function reducer_bird(state = initialState.bird, action) {
             }
 
         }
+        case 'bird/reset': {
+            return {
+                ...initialState.bird
+            }
+
+        }
         case 'bird/fly_up': {
             return {
                 ...state,
                 status: 'fly_up',
-                speed_y: -10
+                speed_y: state.fly_up_speed
             }
         }
 

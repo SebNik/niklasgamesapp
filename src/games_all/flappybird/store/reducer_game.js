@@ -11,6 +11,15 @@ export default function reducer_game(state = initialState.game, action) {
             }
 
         }
+        case 'game/game_over': {
+            console.log("You lost the game: flappy-bird")
+            return {
+                ...state,
+                // status: 'game_over'
+                status: 'menu'
+            }
+
+        }
 
         default:
             return state;

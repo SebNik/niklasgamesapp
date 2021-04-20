@@ -7,6 +7,12 @@ import Menu from "./flappybird/menu";
 
 const selectStatusGame = state => state.game.status
 
+function checkIfDead(state) {
+    if (window.innerHeight<(state.bird.height+ state.bird.startHeight) || 0>(state.bird.height+ state.bird.startHeight)) {
+        store.dispatch({type: 'game/game_over'})
+        store.dispatch({type: 'bird/reset'})
+    }
+}
 
 export default function FlappyBird() {
     console.log('The FlappyBird game was started.')
@@ -15,6 +21,7 @@ export default function FlappyBird() {
 
     setInterval(() => {
         if (store.getState().game.status === "playing") {
+            checkIfDead(store.getState())
             store.dispatch({type: 'bird/falling'})
         }
     }, 25)
@@ -23,11 +30,6 @@ export default function FlappyBird() {
         console.log("Fly UP !!")
         store.dispatch({type: 'bird/fly_up'})
     }
-
-
-
-
-
 
     function Game() {
         const statusGame = useSelector(selectStatusGame)

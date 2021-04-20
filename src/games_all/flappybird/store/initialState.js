@@ -5,8 +5,9 @@ export default {
     },
     bird: {
         gravitation: 0.3,
+        fly_up_speed: -7,
         status: 'normal',
-        height: 188,
+        height: 0,
         startHeight: 188,
         speed_y: 0,
     }
