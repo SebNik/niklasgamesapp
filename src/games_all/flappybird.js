@@ -11,7 +11,8 @@ export default function FlappyBird() {
     console.log('The FlappyBird game was started.')
     console.log('Initial state: ', store.getState())
 
-    const statusGame = useSelector(selectGameStatus)
+    // const statusGame = useSelector(selectGameStatus)
+    const statusGame = store.getState().game.status
 
     setInterval(() => {
         if (store.getState().game.status === "playing") {
@@ -27,9 +28,13 @@ export default function FlappyBird() {
 
     function Game() {
         if (statusGame === 'playing') {
-            <Bird/>
+            return (
+                <Bird/>
+            )
         } else if (statusGame === 'menu') {
-            <div className={"menu-flappy-bird"}>Menu</div>
+            return (
+                <div className={"menu-flappy-bird"}>Menu</div>
+            )
         }
     }
 
