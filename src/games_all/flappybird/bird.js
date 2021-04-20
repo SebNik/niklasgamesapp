@@ -14,7 +14,6 @@ export default function Bird() {
     }
 
 
-
     return (
         <div className={"bird-flappy-bird"} style={style}/>
     )

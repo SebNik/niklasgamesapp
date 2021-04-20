@@ -7,7 +7,11 @@ import store from "./flappybird/store/flappybird_store.js"
 export default function FlappyBird() {
 
     console.log('Initial state: ', store.getState())
-    setInterval(() => {store.dispatch({ type: 'bird/falling' })}, 500)
+    setInterval(() => {
+        if (store.getState().game.status === "playing"){
+            store.dispatch({type: 'bird/falling'})
+        }
+    }, 20)
 
     const handler = () => {
         console.log("Fly UP !!")
