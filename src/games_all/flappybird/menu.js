@@ -9,8 +9,7 @@ export default function Menu() {
     const dispatch = useDispatch()
 
     const newGame = () => {
-        console.log("Starting a new game: flappy-bird")
-        dispatch({type: 'game/newgame'})
+        dispatch({type: 'game/new_game'})
     }
 
     return (

@@ -21,7 +21,7 @@ export default function FlappyBird() {
 
     const handler = () => {
         console.log("Fly UP !!")
-        store.dispatch({type: 'bird/flyup'})
+        store.dispatch({type: 'bird/fly_up'})
     }
 
 
@@ -30,7 +30,6 @@ export default function FlappyBird() {
 
 
     function Game() {
-        // const statusGame = store.getState().game.status
         const statusGame = useSelector(selectStatusGame)
 
         if (statusGame === 'playing') {

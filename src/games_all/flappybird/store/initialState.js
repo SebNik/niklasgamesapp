@@ -1,5 +1,4 @@
 export default {
-    // status: 'menu',
     game: {
         status: 'menu',
         gravitation: 0.5,
