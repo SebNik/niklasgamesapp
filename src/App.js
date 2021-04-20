@@ -9,7 +9,7 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <Navigation/>
+                <Navigation id={"navigation-bar"}/>
                 <Switch>
                     <Route exact strict path="/:page" component={PageRenderer}/>
                     <Route path="/" render={() => <Redirect to="/home" />} />

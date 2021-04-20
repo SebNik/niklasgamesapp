@@ -8,7 +8,7 @@ import Menu from "./flappybird/menu";
 const selectStatusGame = state => state.game.status
 
 function checkIfDead(state) {
-    if (window.innerHeight<(state.bird.height+ state.bird.startHeight) || 0>(state.bird.height+ state.bird.startHeight)) {
+    if (window.innerHeight<(state.bird.height+ state.bird.startHeight) || 65>(state.bird.height+ state.bird.startHeight)) {
         store.dispatch({type: 'game/game_over'})
         store.dispatch({type: 'bird/reset'})
     }
