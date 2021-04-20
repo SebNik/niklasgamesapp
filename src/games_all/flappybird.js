@@ -2,20 +2,19 @@ import React from "react";
 import Bird from "./flappybird/bird";
 import {Provider, useSelector} from 'react-redux'
 import store from "./flappybird/store/flappybird_store.js"
+import Menu from "./flappybird/menu";
 
 
-const selectGameStatus = state => state.game.status
 
 
 export default function FlappyBird() {
     console.log('The FlappyBird game was started.')
     console.log('Initial state: ', store.getState())
 
-    // const statusGame = useSelector(selectGameStatus)
-    const statusGame = store.getState().game.status
+    const statusGame = store.getState().status
 
     setInterval(() => {
-        if (store.getState().game.status === "playing") {
+        if (store.getState().status === "playing") {
             store.dispatch({type: 'bird/falling'})
         }
     }, 20)
@@ -33,7 +32,7 @@ export default function FlappyBird() {
             )
         } else if (statusGame === 'menu') {
             return (
-                <div className={"menu-flappy-bird"}>Menu</div>
+                <Menu/>
             )
         }
     }

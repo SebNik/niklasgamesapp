@@ -37,6 +37,14 @@ export default function reducer(state = initialState, action) {
                 },
             }
         }
+        // TODO split the two action types in two diffrent files --> Bird and Game (https://codesandbox.io/s/github/reduxjs/redux-fundamentals-example-app/tree/checkpoint-4-initialHooks/?from-embed=&file=/src/features/todos/todosSlice.js)
+        case 'game/newgame': {
+            return {
+                ...state,
+                status: 'playing',
+            }
+
+        }
         default:
             return state;
     }
