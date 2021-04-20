@@ -7,7 +7,7 @@ export default function reducer_bird(state = initialState.bird, action) {
             return {
                 ...state,
                 status: 'falling',
-                speed_y: state.speed_y + 3,
+                speed_y: state.speed_y + state.gravitation,
                 height: state.height + state.speed_y,
             }
 
@@ -16,8 +16,7 @@ export default function reducer_bird(state = initialState.bird, action) {
             return {
                 ...state,
                 status: 'fly_up',
-                height: state.height - 20,
-                speed_y: 0
+                speed_y: -10
             }
         }
 

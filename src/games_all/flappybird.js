@@ -17,7 +17,7 @@ export default function FlappyBird() {
         if (store.getState().game.status === "playing") {
             store.dispatch({type: 'bird/falling'})
         }
-    }, 200)
+    }, 25)
 
     const handler = () => {
         console.log("Fly UP !!")
