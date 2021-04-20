@@ -1,18 +1,12 @@
 import initialState from './initialState'
+import { combineReducers } from 'redux'
+import update from 'react-addons-update';
 
-// const initialState = {
-//     game: {
-//         status: 'playing',
-//         gravitation: 0.5,
-//         interval: 0.2,
-//     },
-//     bird: {
-//         status: 'normal',
-//         height: 188,
-//         startHeight: 188,
-//         speed_y: 0,
-//     }
-// }
+// const rootReducer = combineReducers({
+//     // Define a top-level state field named `todos`, handled by `todosReducer`
+//     todos: todosReducer,
+//     filters: filtersReducer,
+// })
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -41,10 +35,16 @@ export default function reducer(state = initialState, action) {
         case 'game/newgame': {
             return {
                 ...state,
-                status: 'playing',
+                game: {
+                    ...state.game,
+                    status: 'playing'
+                },
             }
 
         }
+
+        // return {...state, user: {...state.user, entries: action.payload } };
+
         default:
             return state;
     }

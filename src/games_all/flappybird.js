@@ -5,19 +5,19 @@ import store from "./flappybird/store/flappybird_store.js"
 import Menu from "./flappybird/menu";
 
 
+const selectStatusGame = state => state.game.status
 
 
 export default function FlappyBird() {
     console.log('The FlappyBird game was started.')
     console.log('Initial state: ', store.getState())
 
-    const statusGame = store.getState().status
 
     setInterval(() => {
-        if (store.getState().status === "playing") {
+        if (store.getState().game.status === "playing") {
             store.dispatch({type: 'bird/falling'})
         }
-    }, 20)
+    }, 200)
 
     const handler = () => {
         console.log("Fly UP !!")
@@ -25,7 +25,14 @@ export default function FlappyBird() {
     }
 
 
+
+
+
+
     function Game() {
+        // const statusGame = store.getState().game.status
+        const statusGame = useSelector(selectStatusGame)
+
         if (statusGame === 'playing') {
             return (
                 <Bird/>

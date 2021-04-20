@@ -1,6 +1,7 @@
 export default {
-    status: 'menu',
+    // status: 'menu',
     game: {
+        status: 'menu',
         gravitation: 0.5,
         interval: 0.2,
     },
