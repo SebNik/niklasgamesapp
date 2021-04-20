@@ -1,18 +1,18 @@
-// import initialState from './initialState'
+import initialState from './initialState'
 
-const initialState = {
-    game: {
-        status: 'playing',
-        gravitation: 0.5,
-        interval: 0.2,
-    },
-    bird: {
-        status: 'normal',
-        height: 188,
-        startHeight: 188,
-        speed_y: 0,
-    }
-}
+// const initialState = {
+//     game: {
+//         status: 'playing',
+//         gravitation: 0.5,
+//         interval: 0.2,
+//     },
+//     bird: {
+//         status: 'normal',
+//         height: 188,
+//         startHeight: 188,
+//         speed_y: 0,
+//     }
+// }
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
