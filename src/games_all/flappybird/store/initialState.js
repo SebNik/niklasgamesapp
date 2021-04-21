@@ -1,7 +1,8 @@
 export default {
     game: {
         status: 'menu',
-        interval: 0.2,
+        interval: 25,
+        interval_id: null,
     },
     bird: {
         gravitation: 0.3,
