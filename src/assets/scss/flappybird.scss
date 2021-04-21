@@ -10,13 +10,33 @@
 }
 
 .screen-flappy-bird {
-  background-color: lightgray;
+  background-color: lightblue;
   width: 100vw;
   height: 100vh;
 }
 
 .menu-flappy-bird {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
   width: 100px;
   height: 100px;
   background-color: lightsalmon;
+  border-radius: 20px;
+  text-align: center;
+
+
+  button{
+    text-align: center;
+    margin: 30px auto;
+    background-color: deepskyblue;
+  }
+}
+
+.pipe-flappy-bird {
+  width: 30px;
+  height: 500px;
+  background-color: red;
+  border-radius: 8px;
 }

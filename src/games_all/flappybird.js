@@ -3,6 +3,7 @@ import Bird from "./flappybird/bird";
 import {Provider, useSelector} from 'react-redux'
 import store from "./flappybird/store/flappybird_store.js"
 import Menu from "./flappybird/menu";
+import Piping from "./flappybird/piping";
 
 
 const selectStatusGame = state => state.game.status
@@ -28,7 +29,10 @@ export default function FlappyBird() {
 
         if (statusGame === 'playing') {
             return (
-                <Bird/>
+                <div>
+                    <Bird/>
+                    <Piping />
+                </div>
             )
         } else if (statusGame === 'menu') {
             return (
@@ -36,16 +40,6 @@ export default function FlappyBird() {
             )
         }
     }
-
-    // TODO get the interval cleared depending on the current state
-    // componentDidMount(){
-    //     let intervalId = setInterval(this.yourFunction, 1000)
-    //     this.setState({ intervalId: intervalId })
-    // }
-    //
-    // componentWillUnmount(){
-    //     clearInterval(this.state.intervalId)
-    // }
 
     return (
         <Provider store={store}>
