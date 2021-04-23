@@ -18,5 +18,5 @@ export function checkWinner(boxes) {
     return null;
 }
 
-const boxes = [null, null, null, "X", "X", "O", null, null, null];
-console.log(checkWinner(boxes));
+// const boxes = [null, null, null, "X", "X", "O", null, null, null];
+// console.log(checkWinner(boxes));
