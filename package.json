@@ -18,7 +18,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "sass-loader": "10.1.1",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "react-redux": "^7.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,7 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "react-redux": "^7.2.3"
-  }
+  "devDependencies": {}
 }
