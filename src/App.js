@@ -8,7 +8,7 @@ import './assets/scss/base.scss'
 function App() {
     return (
         <Router>
-            <div className="App">
+            <div className={"app"}>
                 <Navigation id={"navigation-bar"}/>
                 <Switch>
                     <Route exact strict path="/:page" component={PageRenderer}/>
