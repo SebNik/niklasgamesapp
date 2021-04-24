@@ -18,8 +18,8 @@ export default {
         space_between_pipes: 200,
         height_space: 60,
         x_offset: [1600, 100],
-        y_offset: [-200, 200],
-        heights: [500],
+        y_offset: [0, 0],
+        heights: [300],
         scroll_speed: -1.5,
     }
 }
