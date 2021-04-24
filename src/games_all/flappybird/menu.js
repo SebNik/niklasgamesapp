@@ -18,7 +18,7 @@ export default function Menu() {
             store.dispatch({type: 'bird/falling'})
             store.dispatch({type: 'piping/scroll'})
         }, interval)
-
+        store.dispatch({type: 'piping/add_new'})
         dispatch({type: 'game/new_game', payload: intervalId})
 
 

@@ -26,7 +26,20 @@ export default function reducer_game(state = initialState.piping, action) {
             return {
                 ...initialState.piping,
             }
-
+        }
+        case 'piping/add_new': {
+            let random_height =  Math.floor(Math.random() * (window.innerHeight-(state.height_space*2)))+state.height_space;
+            console.log(window.innerHeight, random_height)
+            return {
+                ...state,
+                heights: state.heights.concat(random_height),
+                x_offset: state.x_offset.concat(window.innerWidth),
+            }
+        }
+        case 'piping/remove_pipe': {
+            return {
+                ...initialState.piping,
+            }
         }
         default:
             return state;
