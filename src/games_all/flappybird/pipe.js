@@ -1,19 +1,22 @@
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
 
-const selectHeight = state => state.bird.height
+const selectPipeXOffset = state => state.piping.x_offset
+const selectPipeYOffset = state => state.piping.y_offset
 
-export default function Pipe() {
+export default function Pipe(props) {
 
-    // const height = useSelector(selectHeight)
-    //
-    // const dispatch = useDispatch()
-    //
-    // let style = {
-    //     transform: `translate(0, ${height}px)`
-    // }
+    const x_offset = useSelector(selectPipeXOffset)[props.i]
+    const y_offset = useSelector(selectPipeYOffset)[props.i]
+
+
+    const dispatch = useDispatch()
+
+    let style = {
+        transform: `translate(${x_offset}px, ${y_offset}px)`
+    }
 
     return (
-        <div className={"pipe-flappy-bird"}/>
+        <div className={"pipe-flappy-bird"} style={style}/>
     )
 }

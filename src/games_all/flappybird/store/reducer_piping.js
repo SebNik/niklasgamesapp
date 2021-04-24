@@ -3,17 +3,14 @@ import initialState from './initialState'
 
 export default function reducer_game(state = initialState.piping, action) {
     switch (action.type) {
-        // case 'game/game_over': {
-        //     console.log("You lost the game: flappy-bird")
-        //     clearInterval(state.interval_id)
-        //     return {
-        //         ...state,
-        //         // status: 'game_over'
-        //         status: 'menu',
-        //         interval_id: null,
-        //     }
-        //
-        // }
+        case 'piping/scroll': {
+
+            return {
+                ...state,
+                x_offset: state.x_offset + state.scroll_speed,
+            }
+
+        }
         default:
             return state;
     }

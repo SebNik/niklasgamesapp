@@ -5,7 +5,7 @@ import Pipe from "./pipe";
 export default function Piping() {
     return (
         <div className={"piping-flappy-bird"}>
-            <Pipe/>
+            <Pipe i={0}/>
         </div>
     )
 }

@@ -16,6 +16,7 @@ export default function Menu() {
         let intervalId = setInterval(() => {
             checkIfDead(store.getState())
             store.dispatch({type: 'bird/falling'})
+            store.dispatch({type: 'bird/falling'})
         }, interval)
 
         dispatch({type: 'game/new_game', payload: intervalId})

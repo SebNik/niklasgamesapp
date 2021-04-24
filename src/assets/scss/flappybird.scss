@@ -17,12 +17,12 @@
 
 .menu-flappy-bird {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  margin: -50px 0 0 -50px;
-  width: 100px;
-  height: 100px;
-  background-color: lightsalmon;
+  margin: -100px 0 0 -100px;
+  width: 200px;
+  height: 200px;
+  background-color: lightslategrey;
   border-radius: 20px;
   text-align: center;
 
@@ -30,7 +30,8 @@
   button{
     text-align: center;
     margin: 30px auto;
-    background-color: deepskyblue;
+    background-color: lightcyan;
+    font-size: 15px;
   }
 }
 
