@@ -9,9 +9,10 @@ import Piping from "./flappybird/piping";
 const selectStatusGame = state => state.game.status
 
 export function checkIfDead(state) {
-    if (window.innerHeight<(state.bird.height+ state.bird.startHeight) || 65>(state.bird.height+ state.bird.startHeight)) {
+    if (window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) {
         store.dispatch({type: 'game/game_over'})
         store.dispatch({type: 'bird/reset'})
+        store.dispatch({type: 'piping/reset'})
     }
 }
 
@@ -29,23 +30,23 @@ export default function FlappyBird() {
 
         if (statusGame === 'playing') {
             return (
-                <div>
+                <div onClick={handler} className={"screen-flappy-bird"}>
                     <Bird/>
-                    <Piping />
+                    <Piping/>
                 </div>
             )
         } else if (statusGame === 'menu') {
             return (
-                <Menu/>
+                <div className={"screen-flappy-bird"}>
+                    <Menu/>
+                </div>
             )
         }
     }
 
     return (
         <Provider store={store}>
-            <div onClick={handler} className={"screen-flappy-bird"} id={"game"}>
-                <Game/>
-            </div>
+            <Game/>
         </Provider>
     )
 }

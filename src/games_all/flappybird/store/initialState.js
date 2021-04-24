@@ -5,8 +5,10 @@ export default {
         interval_id: null,
     },
     bird: {
-        gravitation: 0.5,
-        fly_up_speed: -8,
+        // gravitation: 1.5,
+        // fly_up_speed: -16,
+        gravitation: 0.00001,
+        fly_up_speed: 0.00001,
         status: 'normal',
         height: 0,
         startHeight: 188,
@@ -15,8 +17,9 @@ export default {
     piping: {
         space_between_pipes: 200,
         height_space: 60,
-        x_offset: [1600],
-        y_offset: [-200],
-        scroll_speed: 0.5,
+        x_offset: [1600, 100],
+        y_offset: [-200, 200],
+        heights: [500],
+        scroll_speed: -1.5,
     }
 }
