@@ -12,7 +12,7 @@ function scroll_pipes(x_offset_array, offset) {
     return moved_pipes
 }
 
-export default function reducer_game(state = initialState.piping, action) {
+export default function reducer_piping(state = initialState.piping, action) {
     switch (action.type) {
         case 'piping/scroll': {
             // console.log(state.x_offset, state.y_offset)
@@ -28,7 +28,7 @@ export default function reducer_game(state = initialState.piping, action) {
             }
         }
         case 'piping/add_new': {
-            let random_height =  Math.floor(Math.random() * (window.innerHeight-(state.height_space*2)))+state.height_space;
+            let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(state.height_space+65))))+state.height_space+65;
             console.log(window.innerHeight, random_height)
             return {
                 ...state,
