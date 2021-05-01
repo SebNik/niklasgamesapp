@@ -1,16 +1,6 @@
 // this is the main reducer
-// import initialState from './initialState'
-// import { combineReducers } from 'redux'
-// import reducer_bird from './reducer_bird'
-// import reducer_game from "./reducer_game";
-// import reducer_piping from "./reducer_piping"
 import initialState from "./initialState";
 
-// const rootReducer = combineReducers({
-//     bird: reducer_bird,
-//     game: reducer_game,
-//     piping: reducer_piping,
-// })
 
 function scroll_pipes(x_offset_array, offset) {
     let moved_pipes = []
