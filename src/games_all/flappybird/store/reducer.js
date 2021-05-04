@@ -1,11 +1,9 @@
 // this is the main reducer
 import initialState from "./initialState";
-import store from "./flappybird_store";
-
 
 function add_new_pipe(piping) {
     let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(piping.height_space+65+70))))+piping.height_space+65+70;
-    console.log(window.innerHeight, random_height)
+    // console.log(window.innerHeight, random_height)
     return [piping.heights.concat(random_height), piping.x_offset.concat(window.innerWidth)]
 }
 
@@ -18,6 +16,21 @@ function scroll_pipes(x_offset_array, offset) {
     // console.log(moved_pipes)
     return moved_pipes
 }
+
+function bird_hit_pipe(state) {
+    for (var i = 0; i < state.piping.x_offset.length; i++) {
+        // check if bird is in the upper pipe
+        //         if (((state.bird.height+state.bird.startHeight) < (state.piping.heights[i]+65)) && (state.piping.x_offset[i]+100 > (window.innerWidth * 0.5) > state.piping.x_offset[i])) {
+        // console.log(state.piping.x_offset[i]+30 > (window.innerWidth * 0.5), (window.innerWidth * 0.5) > state.piping.x_offset[i])
+        if (((state.bird.height+state.bird.startHeight) < (state.piping.heights[i]+65)) && (state.piping.x_offset[i]+100 > (960) > state.piping.x_offset[i])) {
+            console.log('Hit the upper pipe')
+        }
+
+        // check if bird is in the lower pipe
+    }
+    // returning the corresponding value
+}
+
 
 function rootReducer (state = initialState, action){
     switch (action.type) {
@@ -60,6 +73,8 @@ function rootReducer (state = initialState, action){
             // copy of state
             let state_current = state
 
+            bird_hit_pipe(state)
+
             if (window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) {
                 console.log("You lost the game: flappy-bird")
                 clearInterval(state.game.interval_id)
@@ -81,7 +96,7 @@ function rootReducer (state = initialState, action){
             // checking the first and therefore oldest pipe if out of screen
             if (state.piping.x_offset[0] < 0) {
                 // removing this pipe
-                console.log('Removing a Pipe 0')
+                // console.log('Removing a Pipe 0')
                 state_current.x_offset.shift()
                 state_current.heights.shift()
             }

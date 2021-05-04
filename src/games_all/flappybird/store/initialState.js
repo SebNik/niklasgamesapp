@@ -15,7 +15,7 @@ export default {
         speed_y: 0,
     },
     piping: {
-        space_between_pipes: 400,
+        space_between_pipes: 800,
         height_space: 140,
         x_offset: [],
         heights: [],
