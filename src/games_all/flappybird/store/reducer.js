@@ -2,6 +2,16 @@
 import initialState from "./initialState";
 
 
+function check_pipe_out(piping) {
+
+}
+
+function add_new_pipe(piping) {
+    let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(piping.height_space+65))))+piping.height_space+65;
+    console.log(window.innerHeight, random_height)
+    return [piping.heights.concat(random_height), piping.x_offset.concat(window.innerWidth)]
+}
+
 function scroll_pipes(x_offset_array, offset) {
     let moved_pipes = []
     for (const pipe_x of x_offset_array){
@@ -90,14 +100,13 @@ function rootReducer (state = initialState, action){
             }
         }
         case 'piping/add_new': {
-            let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(state.piping.height_space+65))))+state.piping.height_space+65;
-            console.log(window.innerHeight, random_height)
+            const [heights_new, x_offset_new] = add_new_pipe(state.piping);
             return {
                 ...state,
                 piping: {
                     ...state.piping,
-                    heights: state.piping.heights.concat(random_height),
-                    x_offset: state.piping.x_offset.concat(window.innerWidth),
+                    heights: heights_new,
+                    x_offset: x_offset_new,
                 }
             }
         }
