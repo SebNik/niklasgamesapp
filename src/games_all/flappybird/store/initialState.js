@@ -15,10 +15,11 @@ export default {
         speed_y: 0,
     },
     piping: {
-        space_between_pipes: 200,
+        space_between_pipes: 400,
         height_space: 120,
         x_offset: [],
         heights: [],
+        // scroll_speed: -3,
         scroll_speed: -2,
     }
 }

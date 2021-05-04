@@ -17,10 +17,10 @@ export default function Menu() {
             checkIfDead(store.getState())
             store.dispatch({type: 'bird/falling'})
             store.dispatch({type: 'piping/scroll'})
+            store.dispatch({type: 'piping/update'})
         }, interval)
         store.dispatch({type: 'piping/add_new'})
         dispatch({type: 'game/new_game', payload: intervalId})
-
 
     }
 

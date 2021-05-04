@@ -1,5 +1,6 @@
 // this is the main reducer
 import initialState from "./initialState";
+import React from "react";
 
 
 function check_pipe_out(piping) {
@@ -91,6 +92,36 @@ function rootReducer (state = initialState, action){
                 }
             }
         }
+
+        case 'piping/update': {
+            // out ? --> new ? --> scroll !
+            // make the new data copy of state
+            let state_current = state.piping
+            // checking the first and therefore oldest pipe if out of screen
+            if (state.piping.x_offset[0] < 0) {
+                // removing this pipe
+                console.log('Removing a Pipe 0')
+                state_current.x_offset.shift()
+                state_current.heights.shift()
+            }
+            // checking if to add a new pipe because distance is reached
+            if (state_current.x_offset[state_current.x_offset.length-1] < window.innerWidth - state.piping.space_between_pipes ) {
+                const [heights_new, x_offset_new] = add_new_pipe(state_current)
+                state_current.x_offset = x_offset_new
+                state_current.heights = heights_new
+            }
+            // making the scroll for all the pipes
+            // adding the scroll to current
+            state_current.x_offset = scroll_pipes(state_current.x_offset, state.piping.scroll_speed)
+            return {
+                ...state,
+                piping: {
+                    ...state_current,
+                }
+            }
+        }
+
+
         case 'piping/reset': {
             return {
                 ...state,
