@@ -1,25 +1,7 @@
 // this page will give an overview over all the games on the page
 import React from "react";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
-
-const navLinks = [
-    {
-        title: 'TicTacToe',
-        path: '/games/tictactoe',
-        component: 'Tictactoe'
-    },
-    {
-        title: 'Clicker',
-        path: '/games/Clicker',
-        component: 'Clicker'
-    },
-    {
-        title: 'FlappyBird',
-        path: '/games/flappybird',
-        component: 'flappybird'
-    }
-]
-
+import {navLinks} from "./navLinksGames";
 
 export default function Games() {
     return (
