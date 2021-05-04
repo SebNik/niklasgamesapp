@@ -8,14 +8,6 @@ import Piping from "./flappybird/piping";
 
 const selectStatusGame = state => state.game.status
 
-export function checkIfDead(state) {
-    if (window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) {
-        store.dispatch({type: 'game/game_over'})
-        store.dispatch({type: 'bird/reset'})
-        store.dispatch({type: 'piping/reset'})
-    }
-}
-
 export default function FlappyBird() {
     console.log('The FlappyBird game was started.')
     console.log('Initial state: ', store.getState())

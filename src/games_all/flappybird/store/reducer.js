@@ -1,14 +1,10 @@
 // this is the main reducer
 import initialState from "./initialState";
-import React from "react";
+import store from "./flappybird_store";
 
-
-function check_pipe_out(piping) {
-
-}
 
 function add_new_pipe(piping) {
-    let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(piping.height_space+65))))+piping.height_space+65;
+    let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(piping.height_space+65+70))))+piping.height_space+65+70;
     console.log(window.innerHeight, random_height)
     return [piping.heights.concat(random_height), piping.x_offset.concat(window.innerWidth)]
 }
@@ -37,14 +33,6 @@ function rootReducer (state = initialState, action){
                 },
             }
         }
-        case 'bird/reset': {
-            return {
-                ...state,
-                bird: {
-                    ...initialState.bird
-                }
-            }
-        }
         case 'bird/fly_up': {
             return {
                 ...state,
@@ -67,32 +55,25 @@ function rootReducer (state = initialState, action){
                 }
             }
         }
-        case 'game/game_over': {
-            console.log("You lost the game: flappy-bird")
-            clearInterval(state.game.interval_id)
-            return {
-                ...state,
-                game: {
-                    ...state.game,
-                    // status: 'game_over'
-                    status: 'menu',
-                    interval_id: null,
-                }
+        case 'game/update': {
+            // this will update the game and check if it is still playing
+            // copy of state
+            let state_current = state
+
+            if (window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) {
+                console.log("You lost the game: flappy-bird")
+                clearInterval(state.game.interval_id)
+                state_current.game.status = 'menu'
+                state_current.game.interval_id = null
+                state_current.bird = initialState.bird
+                state_current.piping = initialState.piping
             }
 
+            return {
+                ...state_current
+            }
         }
         // ---------------------------- PIPING ----------------------------
-        case 'piping/scroll': {
-            // console.log(state.x_offset, state.y_offset)
-            return {
-                ...state,
-                piping: {
-                    ...state.piping,
-                    x_offset: scroll_pipes(state.piping.x_offset, state.piping.scroll_speed),
-                }
-            }
-        }
-
         case 'piping/update': {
             // out ? --> new ? --> scroll !
             // make the new data copy of state
@@ -120,16 +101,6 @@ function rootReducer (state = initialState, action){
                 }
             }
         }
-
-
-        case 'piping/reset': {
-            return {
-                ...state,
-                piping: {
-                    ...initialState.piping
-                }
-            }
-        }
         case 'piping/add_new': {
             const [heights_new, x_offset_new] = add_new_pipe(state.piping);
             return {
@@ -141,15 +112,6 @@ function rootReducer (state = initialState, action){
                 }
             }
         }
-        case 'piping/remove_pipe': {
-            return {
-                ...state,
-                piping: {
-                    ...initialState.piping,
-                }
-            }
-        }
-
         // ---------------------------- DEFAULT ----------------------------
         default:
             return state;

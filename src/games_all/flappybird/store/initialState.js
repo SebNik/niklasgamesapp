@@ -5,7 +5,7 @@ export default {
         interval_id: null,
     },
     bird: {
-        gravitation: 1.5,
+        gravitation: 1.3,
         fly_up_speed: -13,
         // gravitation: 0.00001,
         // fly_up_speed: 0.00001,
@@ -16,7 +16,7 @@ export default {
     },
     piping: {
         space_between_pipes: 400,
-        height_space: 120,
+        height_space: 140,
         x_offset: [],
         heights: [],
         // scroll_speed: -3,
