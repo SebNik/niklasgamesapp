@@ -13,5 +13,10 @@ export const navLinks = [
         title: 'FlappyBird',
         path: '/games/flappybird',
         component: 'flappybird'
-    }
+    },
+    {
+        title: 'FractalTree',
+        path: '/games/fractaltree',
+        component: 'FractalTree'
+    },
 ]
