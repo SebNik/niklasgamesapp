@@ -32,19 +32,19 @@ export default function FractalTree() {
             }
         }
 
-        drawTree(250,500, -90, data.depth, data.start_length, data.fraction, data.angle)
+        drawTree(500,600, -90, data.depth, data.start_length, data.fraction, data.angle)
 
         ctx.closePath()
         ctx.stroke();
     }
     return (
         <div className={"fractal_tree_screen"}>
-            <Canvas draw={draw} settings={{start_length: length, depth: depth, fraction: fraction, angle: angle}} height={"500px"} width={"500px"}/>
+            <Canvas draw={draw} settings={{start_length: length, depth: depth, fraction: fraction, angle: angle}} height={"1000px"} width={"1000px"}/>
             <div className={"fractal_tree_settings"}>
                 <p>Depth</p>
                 <Slider value={depth} onChange={(event, newDepth) => {setDepth(newDepth)}} min={0} max={20}/>
                 <p>Start length</p>
-                <Slider value={length} onChange={(event, newLength) => {setLength(newLength)}} min={10} max={100}/>
+                <Slider value={length} onChange={(event, newLength) => {setLength(newLength)}} min={10} max={200}/>
                 <p>Length fraction</p>
                 <Slider value={fraction*100} onChange={(event, newValue) => {setFraction(newValue/100)}} min={0} max={100}/>
                 <p>Angle</p>
