@@ -19,4 +19,24 @@ export const navLinks = [
         path: '/games/fractaltree',
         component: 'FractalTree'
     },
+    {
+        title: 'Test1',
+        path: '/games/test1',
+        component: 'Clicker'
+    },
+    {
+        title: 'Test1',
+        path: '/games/test1',
+        component: 'Clicker'
+    },
+    {
+        title: 'Test2',
+        path: '/games/test2',
+        component: 'Clicker'
+    },
+    {
+        title: 'Test3',
+        path: '/games/test1',
+        component: 'Clicker'
+    },
 ]

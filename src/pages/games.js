@@ -4,6 +4,17 @@ import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import {navLinks} from "./navLinksGames";
 
 export default function Games() {
+
+    function position(index) {
+        let column_start = index - (Math.trunc(index/5)*5)
+        let row_start = (Math.trunc(index/5))
+        let style = {
+            gridRow: `${row_start+2} / ${row_start+3}`,
+            gridColumn: `${column_start+2} / ${column_start+3}`,
+        }
+        return style
+    }
+
     return (
         <BrowserRouter>
             <Switch>
@@ -11,17 +22,14 @@ export default function Games() {
                     const Component = require(`../games_all/${link.component}`).default
                     return <Route key={index} exact strict path={link.path}> <Component/> </Route>
                 })}
-                <React.Fragment>
-                    <ul>
-                        {navLinks.map((link, index) => (
-                            <li key={index}>
-                                <Link to={link.path}>{link.title}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                </React.Fragment>
+                <div className={"container-games"}>
+                    {navLinks.map((link, index) => (
+                        <div key={index} className={"single-game-item"} style={position(index)}>
+                            <Link to={link.path}>{link.title}</Link>
+                        </div>
+                    ))}
+                </div>
             </Switch>
-
         </BrowserRouter>
     )
 }
