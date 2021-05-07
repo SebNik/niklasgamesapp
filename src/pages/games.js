@@ -11,6 +11,7 @@ export default function Games() {
         let style = {
             gridRow: `${row_start+2} / ${row_start+3}`,
             gridColumn: `${column_start+2} / ${column_start+3}`,
+            // TODO ADD the background image here
         }
         return style
     }

@@ -7,5 +7,15 @@
 }
 
 .single-game-item {
-  justify-self: center;
+  justify-self: stretch;
+
+  a {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    background-color: lightsalmon;
+    &:hover{
+      color: $text-link;
+    }
+  }
 }
