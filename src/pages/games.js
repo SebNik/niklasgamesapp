@@ -3,18 +3,18 @@ import React from "react";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import {navLinks} from "./navLinksGames";
 
-import Background from '../assets/images/game.png';
 
 export default function Games() {
 
-    function position(index) {
+    function position(index, data) {
         let column_start = index - (Math.trunc(index / 4) * 4)
         let row_start = (Math.trunc(index / 4))
+        // TODO ADD the right image
+        const image_im = require(`../assets/images/games_thumbnail/${data.title}.png`).default
         return {
             gridRow: `${row_start + 2} / ${row_start + 3}`,
             gridColumn: `${column_start + 2} / ${column_start + 3}`,
-            // TODO ADD the background image here
-            backgroundImage: `url(${Background})`,
+            backgroundImage: `url(${image_im})`,
         }
     }
 
@@ -27,7 +27,7 @@ export default function Games() {
                 })}
                 <div className={"container-games"}>
                     {navLinks.map((link, index) => (
-                        <div key={index} className={"single-game-item"} style={position(index)}>
+                        <div key={index} className={"single-game-item"} style={position(index, link)}>
                             <Link to={link.path}>{link.title}</Link>
                         </div>
                     ))}
