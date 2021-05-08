@@ -14,9 +14,9 @@
   border-radius: 20px;
   border-color: lightgrey;
 
-  background-size: 100px;
+  background-size: 35%;
   background-repeat: no-repeat;
-  background-position: 50% 70%;
+  background-position: 50% 60%;
 
   &:hover {
     background-image: none !important;
@@ -42,10 +42,11 @@
     text-decoration: none;
     color: black;
     background-color: lightgrey;
-    display: block;
     font-weight: bold;
-    height: 30px;
-    text-align: center;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     //&:hover {
     //  color: white;

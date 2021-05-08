@@ -5,10 +5,10 @@ import Grid from '@material-ui/core/Grid';
 
 export default function FractalTree() {
 
-    const [depth, setDepth] = useState(1);
-    const [length, setLength] = useState(1);
-    const [fraction, setFraction] = useState(1);
-    const [angle, setAngle] = useState(1);
+    const [depth, setDepth] = useState(15);
+    const [length, setLength] = useState(150);
+    const [fraction, setFraction] = useState(0.72);
+    const [angle, setAngle] = useState(30);
 
 
     const draw = (ctx, data) => {
