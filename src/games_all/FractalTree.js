@@ -5,17 +5,20 @@ import Grid from '@material-ui/core/Grid';
 
 export default function FractalTree() {
 
-    const [depth, setDepth] = useState(15);
-    const [length, setLength] = useState(150);
-    const [fraction, setFraction] = useState(0.72);
-    const [angle, setAngle] = useState(30);
+    const [depth, setDepth] = useState(0);
+    const [length, setLength] = useState(0);
+    const [fraction, setFraction] = useState(0);
+    const [angle, setAngle] = useState(0);
 
 
-    const draw = (ctx, data) => {
-        var deg_to_rad = Math.PI / 180.0;
+    const draw = (canvas, data, scaleX, scaleY) => {
+        const deg_to_rad = Math.PI / 180.0;
+        const ctx = canvas.getContext('2d')
+        ctx.scale(scaleX, scaleY);
+        // ctx.translate(500, 500);
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
         ctx.beginPath()
-
+        console.log(ctx.canvas.width, ctx.canvas.height)
 
         function drawLine(x1, y1, x2, y2, brightness){
             ctx.moveTo(x1, y1);
@@ -32,7 +35,7 @@ export default function FractalTree() {
             }
         }
 
-        drawTree(500,600, -90, data.depth, data.start_length, data.fraction, data.angle)
+        drawTree(0,0, -90, data.depth, data.start_length, data.fraction, data.angle)
 
         ctx.closePath()
         ctx.stroke();
