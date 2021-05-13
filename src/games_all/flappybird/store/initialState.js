@@ -16,10 +16,10 @@ export default {
     },
     piping: {
         space_between_pipes: 800,
-        height_space: 140,
+        height_space: 200,
         x_offset: [],
         heights: [],
         // scroll_speed: -3,
-        scroll_speed: -2,
+        scroll_speed: -1,
     }
 }

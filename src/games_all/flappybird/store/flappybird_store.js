@@ -4,7 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import loggerMiddleware from '../middleware/logger'
 import rootReducer from './reducer'
 
-const middlewares = [loggerMiddleware, thunkMiddleware]
+const middlewares = [thunkMiddleware]
 const middlewareEnhancer = applyMiddleware(...middlewares)
 
 const composedEnhancers = composeWithDevTools(middlewareEnhancer)

@@ -1,5 +1,6 @@
 // this is the main reducer
 import initialState from "./initialState";
+import flappybird_store from "./flappybird_store";
 
 function add_new_pipe(piping) {
     let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(piping.height_space+65+70))))+piping.height_space+65+70;
@@ -19,16 +20,16 @@ function scroll_pipes(x_offset_array, offset) {
 
 function bird_hit_pipe(state) {
     for (var i = 0; i < state.piping.x_offset.length; i++) {
-        // check if bird is in the upper pipe
-        //         if (((state.bird.height+state.bird.startHeight) < (state.piping.heights[i]+65)) && (state.piping.x_offset[i]+100 > (window.innerWidth * 0.5) > state.piping.x_offset[i])) {
-        // console.log(state.piping.x_offset[i]+30 > (window.innerWidth * 0.5), (window.innerWidth * 0.5) > state.piping.x_offset[i])
-        if (((state.bird.height+state.bird.startHeight) < (state.piping.heights[i]+65)) && (state.piping.x_offset[i]+100 > (960) > state.piping.x_offset[i])) {
+        if (((state.bird.height+state.bird.startHeight) < (state.piping.heights[i]+65)) && (state.piping.x_offset[i] < 960) && (960 < state.piping.x_offset[i]+50)) {
             console.log('Hit the upper pipe')
+            return true
         }
-
-        // check if bird is in the lower pipe
+        else if (((state.bird.height+state.bird.startHeight) > (state.piping.heights[i]+65+state.piping.height_space)) && (state.piping.x_offset[i] < 960) && (960 < state.piping.x_offset[i]+50)) {
+            console.log('Hit the lower pipe')
+            return true
+        }
     }
-    // returning the corresponding value
+    return false
 }
 
 
@@ -73,7 +74,11 @@ function rootReducer (state = initialState, action){
             // copy of state
             let state_current = state
 
-            bird_hit_pipe(state)
+            if (bird_hit_pipe(state)){
+                console.log("You lost the game: flappy-bird")
+                clearInterval(state.game.interval_id)
+                state_current.game.status = 'menu'
+            }
 
             if (window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) {
                 console.log("You lost the game: flappy-bird")
