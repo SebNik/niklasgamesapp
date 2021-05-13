@@ -12,10 +12,18 @@ export default function FractalTree() {
 
     const draw = (ctx, data) => {
         const deg_to_rad = Math.PI / 180.0;
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-        ctx.beginPath()
 
-        function drawLine(x1, y1, x2, y2, brightness){
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+
+        var gradient = ctx.createLinearGradient(ctx.canvas.width*0.3, ctx.canvas.height*0.3, ctx.canvas.width*0.7, ctx.canvas.height*0.7);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.5" ,"blue");
+        gradient.addColorStop("1.0", "red");
+
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 2;
+
+        function drawLine(x1, y1, x2, y2){
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
         }
@@ -31,9 +39,8 @@ export default function FractalTree() {
         }
 
         drawTree(ctx.canvas.width/2,ctx.canvas.height-(ctx.canvas.height*0.2), -90, data.depth, data.start_length, data.fraction, data.angle)
-
-        ctx.closePath()
         ctx.stroke();
+
     }
 
     return (
