@@ -19,7 +19,7 @@ export default function Pipe(props) {
     }
 
     let style_down = {
-        transform: `translate(${x_offset}px, ${height+space}px)`,
+        transform: `translate(${x_offset}px, ${height + space}px)`,
         height: `100%`
     }
 

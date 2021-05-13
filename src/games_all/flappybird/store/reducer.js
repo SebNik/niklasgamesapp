@@ -2,28 +2,27 @@
 import initialState from "./initialState"
 
 function add_new_pipe(piping) {
-    let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(piping.height_space+65+70))))+piping.height_space+65+70;
+    let random_height = Math.floor(Math.random() * (window.innerHeight - (2 * (piping.height_space + 65 + 70)))) + piping.height_space + 65 + 70;
     // console.log(window.innerHeight, random_height)
     return [piping.heights.concat(random_height), piping.x_offset.concat(window.innerWidth)]
 }
 
 function scroll_pipes(x_offset_array, offset) {
     let moved_pipes = []
-    for (const pipe_x of x_offset_array){
+    for (const pipe_x of x_offset_array) {
         // console.log(pipe_x)
-        moved_pipes.push(pipe_x+offset)
+        moved_pipes.push(pipe_x + offset)
     }
     // console.log(moved_pipes)
     return moved_pipes
 }
 
 function bird_hit_pipe(state) {
-    for (var i = 0; i < state.piping.x_offset.length; i++) {
-        if (((state.bird.height+state.bird.startHeight) < (state.piping.heights[i]+65)) && (state.piping.x_offset[i] < 960) && (960 < state.piping.x_offset[i]+50)) {
+    for (let i = 0; i < state.piping.x_offset.length; i++) {
+        if (((state.bird.height + state.bird.startHeight) < (state.piping.heights[i] + 65)) && (state.piping.x_offset[i] < 960) && (960 < state.piping.x_offset[i] + 50)) {
             console.log('Hit the upper pipe')
             return true
-        }
-        else if (((state.bird.height+state.bird.startHeight) > (state.piping.heights[i]+65+state.piping.height_space)) && (state.piping.x_offset[i] < 960) && (960 < state.piping.x_offset[i]+50)) {
+        } else if (((state.bird.height + state.bird.startHeight) > (state.piping.heights[i] + 65 + state.piping.height_space)) && (state.piping.x_offset[i] < 960) && (960 < state.piping.x_offset[i] + 50)) {
             console.log('Hit the lower pipe')
             return true
         }
@@ -32,7 +31,7 @@ function bird_hit_pipe(state) {
 }
 
 
-function rootReducer (state = initialState, action){
+function rootReducer(state = initialState, action) {
     switch (action.type) {
         // ---------------------------- BIRD ----------------------------
         case 'bird/falling': {
@@ -99,7 +98,7 @@ function rootReducer (state = initialState, action){
                 state_current.heights.shift()
             }
             // checking if to add a new pipe because distance is reached
-            if (state_current.x_offset[state_current.x_offset.length-1] < window.innerWidth - state.piping.space_between_pipes ) {
+            if (state_current.x_offset[state_current.x_offset.length - 1] < window.innerWidth - state.piping.space_between_pipes) {
                 const [heights_new, x_offset_new] = add_new_pipe(state_current)
                 state_current.x_offset = x_offset_new
                 state_current.heights = heights_new
@@ -130,7 +129,6 @@ function rootReducer (state = initialState, action){
             return state;
     }
 }
-
 
 
 export default rootReducer
