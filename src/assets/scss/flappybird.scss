@@ -35,9 +35,18 @@
   }
 }
 
-.pipe-flappy-bird {
+.pipe-upper-flappy-bird {
   width: 50px;
   background-color: red;
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: absolute;
+}
+
+.pipe-lower-flappy-bird {
+  width: 50px;
+  background-color: red;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   position: absolute;
 }

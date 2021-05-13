@@ -1,2 +1,7 @@
 $text-link: #2997ff;
 $text-color: #444;
+
+:export {
+  textlink: $text-link;
+  textcolor: $text-color;
+}

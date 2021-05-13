@@ -1,6 +1,5 @@
 // this is the main reducer
-import initialState from "./initialState";
-import flappybird_store from "./flappybird_store";
+import initialState from "./initialState"
 
 function add_new_pipe(piping) {
     let random_height =  Math.floor(Math.random() * (window.innerHeight-(2*(piping.height_space+65+70))))+piping.height_space+65+70;
@@ -78,6 +77,9 @@ function rootReducer (state = initialState, action){
                 console.log("You lost the game: flappy-bird")
                 clearInterval(state.game.interval_id)
                 state_current.game.status = 'menu'
+                state_current.game.interval_id = null
+                state_current.bird = initialState.bird
+                state_current.piping = initialState.piping
             }
 
             if (window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) {

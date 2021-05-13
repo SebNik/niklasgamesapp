@@ -25,8 +25,8 @@ export default function Pipe(props) {
 
     return (
         <div>
-            <div className={"pipe-flappy-bird"} style={style_upper}/>
-            <div className={"pipe-flappy-bird"} style={style_down}/>
+            <div className={"pipe-upper-flappy-bird"} style={style_upper}/>
+            <div className={"pipe-lower-flappy-bird"} style={style_down}/>
         </div>
     )
 }
