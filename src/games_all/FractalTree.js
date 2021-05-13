@@ -15,13 +15,14 @@ export default function FractalTree() {
 
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
-        var gradient = ctx.createLinearGradient(ctx.canvas.width*0.3, ctx.canvas.height*0.3, ctx.canvas.width*0.7, ctx.canvas.height*0.7);
+        var gradient = ctx.createLinearGradient(ctx.canvas.width*0.2, ctx.canvas.height*0.5, ctx.canvas.width*0.8, ctx.canvas.height*0.5);
+        // var gradient = ctx.createRadialGradient(ctx.canvas.width*0.5, ctx.canvas.height*0.5, 50, ctx.canvas.width*0.5, ctx.canvas.height*0.5, 700);
         gradient.addColorStop("0", "magenta");
         gradient.addColorStop("0.5" ,"blue");
         gradient.addColorStop("1.0", "red");
 
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 2.2;
 
         function drawLine(x1, y1, x2, y2){
             ctx.moveTo(x1, y1);
@@ -52,9 +53,9 @@ export default function FractalTree() {
                 <p>Start length</p>
                 <Slider value={length} onChange={(event, newLength) => {setLength(newLength)}} min={10} max={200}/>
                 <p>Length fraction</p>
-                <Slider value={fraction*100} onChange={(event, newValue) => {setFraction(newValue/100)}} min={0} max={100}/>
+                <Slider value={fraction*100} onChange={(event, newValue) => {setFraction(newValue/100)}} min={50} max={100}/>
                 <p>Angle</p>
-                <Slider value={angle} onChange={(event, newValue) => {setAngle(newValue)}} min={-90} max={90}/>
+                <Slider value={angle} onChange={(event, newValue) => {setAngle(newValue)}} min={0} max={90}/>
             </div>
         </div>
     )
