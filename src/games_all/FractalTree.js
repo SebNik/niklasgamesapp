@@ -1,24 +1,19 @@
 import React, { useState } from 'react'
 import Canvas from "./FractalTree/canvas";
 import Slider from '@material-ui/core/Slider';
-import Grid from '@material-ui/core/Grid';
 
 export default function FractalTree() {
 
-    const [depth, setDepth] = useState(0);
-    const [length, setLength] = useState(0);
-    const [fraction, setFraction] = useState(0);
-    const [angle, setAngle] = useState(0);
+    const [depth, setDepth] = useState(12);
+    const [length, setLength] = useState(150);
+    const [fraction, setFraction] = useState(0.7);
+    const [angle, setAngle] = useState(40);
 
 
-    const draw = (canvas, data, scaleX, scaleY) => {
+    const draw = (ctx, data) => {
         const deg_to_rad = Math.PI / 180.0;
-        const ctx = canvas.getContext('2d')
-        ctx.scale(scaleX, scaleY);
-        // ctx.translate(500, 500);
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
         ctx.beginPath()
-        console.log(ctx.canvas.width, ctx.canvas.height)
 
         function drawLine(x1, y1, x2, y2, brightness){
             ctx.moveTo(x1, y1);
@@ -35,14 +30,15 @@ export default function FractalTree() {
             }
         }
 
-        drawTree(0,0, -90, data.depth, data.start_length, data.fraction, data.angle)
+        drawTree(ctx.canvas.width/2,ctx.canvas.height-(ctx.canvas.height*0.2), -90, data.depth, data.start_length, data.fraction, data.angle)
 
         ctx.closePath()
         ctx.stroke();
     }
+
     return (
-        <div className={"fractal_tree_screen"}>
-            <Canvas draw={draw} settings={{start_length: length, depth: depth, fraction: fraction, angle: angle}} height={"1000px"} width={"1000px"}/>
+        <div className={"fractal_tree_screen"} id={"main"}>
+            <Canvas draw={draw} settings={{start_length: length, depth: depth, fraction: fraction, angle: angle}}/>
             <div className={"fractal_tree_settings"}>
                 <p>Depth</p>
                 <Slider value={depth} onChange={(event, newDepth) => {setDepth(newDepth)}} min={0} max={20}/>
