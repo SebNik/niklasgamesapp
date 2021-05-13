@@ -19,7 +19,6 @@ export default {
         height_space: 200,
         x_offset: [],
         heights: [],
-        // scroll_speed: -3,
-        scroll_speed: -1,
+        scroll_speed: -2.2,
     }
 }

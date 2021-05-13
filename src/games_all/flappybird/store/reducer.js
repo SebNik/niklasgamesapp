@@ -73,16 +73,7 @@ function rootReducer (state = initialState, action){
             // copy of state
             let state_current = state
 
-            if (bird_hit_pipe(state)){
-                console.log("You lost the game: flappy-bird")
-                clearInterval(state.game.interval_id)
-                state_current.game.status = 'menu'
-                state_current.game.interval_id = null
-                state_current.bird = initialState.bird
-                state_current.piping = initialState.piping
-            }
-
-            if (window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) {
+            if ((window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) || (bird_hit_pipe(state))) {
                 console.log("You lost the game: flappy-bird")
                 clearInterval(state.game.interval_id)
                 state_current.game.status = 'menu'
