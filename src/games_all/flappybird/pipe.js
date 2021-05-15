@@ -4,7 +4,6 @@ import {useSelector} from "react-redux";
 const selectPipeXOffset = state => state.piping.x_offset
 const selectPipeHeights = state => state.piping.heights
 const selectPipeSpace = state => state.piping.height_space
-const selectGameFloor = state => state.game.floor_offset
 const selectGameHeight = state => state.game.game_height
 
 
@@ -13,7 +12,6 @@ export default function Pipe(props) {
     const x_offset = useSelector(selectPipeXOffset)[props.i]
     const height = useSelector(selectPipeHeights)[props.i]
     const space = useSelector(selectPipeSpace)
-    const floor = useSelector(selectGameFloor)
     const game_height = useSelector(selectGameHeight)
 
 
