@@ -1,15 +1,27 @@
 import React from 'react'
-import {useSelector, useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
+
+import BirdHigh from "../../assets/images/flappy_bird/Bird_hoch.png"
+import BirdLow from "../../assets/images/flappy_bird/Bird_runter.png"
+
 
 const selectHeight = state => state.bird.height
+const selectSpeed = state => state.bird.speed_y
+
 
 export default function Bird() {
 
     const height = useSelector(selectHeight)
+    const speed = useSelector(selectSpeed)
 
-    const dispatch = useDispatch()
+    let bird_image = BirdHigh
+
+    if (speed < 0) {
+        bird_image = BirdLow
+    }
 
     let style = {
+        backgroundImage: `url(${bird_image})`,
         transform: `translate(0, ${height}px)`
     }
 

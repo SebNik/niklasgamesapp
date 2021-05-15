@@ -22,7 +22,7 @@ export default function Pipe(props) {
 
     let style_down = {
         transform: `translate(${x_offset}px, ${height + space}px)`,
-        height: `${game_height - (height + space) + 1}px`
+        height: `${game_height - (height + space) + 0}px`
     }
 
     return (

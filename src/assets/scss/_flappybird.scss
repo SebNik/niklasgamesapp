@@ -16,6 +16,8 @@
 
 .floor-flappy-bird {
   background-color: #ff0000;
+  background-image: url("../images/flappy_bird/Boden.png");
+  background-size: contain;
   width: 100%;
   height: 100%;
   grid-row: 2;
@@ -24,13 +26,14 @@
 
 .bird-flappy-bird {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 100%;
   display: inline-block;
-  background-color: #ff0000;
-  border-radius: 10px;
   top: 188px;
   left: 960px;
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }
 
 .menu-flappy-bird {
@@ -48,7 +51,7 @@
     text-align: center;
     border: none;
     border-radius: 10px;
-    margin: 20px auto;
+    margin: 15% auto;
     background-color: lightcyan;
     font-size: 23px;
   }
