@@ -1,7 +1,7 @@
 export default {
     game: {
         status: 'menu',
-        interval: 22,
+        interval: 10,
         interval_id: null,
         game_height: null,
         game_width: null,
@@ -9,8 +9,8 @@ export default {
         floor_offset: null,
     },
     bird: {
-        gravitation: 1.3,
-        fly_up_speed: -13,
+        gravitation: 0.4,
+        fly_up_speed: -8,
         // gravitation: 0.00001,
         // fly_up_speed: 0.00001,
         status: 'normal',
@@ -23,6 +23,6 @@ export default {
         height_space: 200,
         x_offset: [],
         heights: [],
-        scroll_speed: -2.2,
+        scroll_speed: -1.5,
     }
 }

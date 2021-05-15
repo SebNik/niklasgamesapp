@@ -3,7 +3,7 @@ import initialState from "./initialState"
 
 function add_new_pipe(piping, game) {
     // const rand = min + Math.random() * (max - min);
-    let random_height = Math.floor(Math.random() * ((game.game_height-piping.height_space) - piping.height_space) + piping.height_space);
+    let random_height = Math.floor(Math.random() * ((game.game_height - piping.height_space - 50) - piping.height_space)) + piping.height_space;
     console.log(game.game_height, random_height, game.game_width)
     return [piping.heights.concat(random_height), piping.x_offset.concat(game.game_width)]
 }
@@ -73,12 +73,12 @@ function rootReducer(state = initialState, action) {
             // copy of state
             let state_current = state
 
-            if (state.game.game_height == null) {
-                state_current.game.top_offset = parseInt(getComputedStyle(document.getElementById("site-navigation")).getPropertyValue("height").replace("px", ""))
-                state_current.game.game_height = parseInt(getComputedStyle(document.getElementById("game-screen-flappy-bird")).getPropertyValue("height").replace("px", ""))
-                state_current.game.game_width = parseInt(getComputedStyle(document.getElementById("game-screen-flappy-bird")).getPropertyValue("width").replace("px", ""))
-                state_current.game.floor_offset = parseInt(getComputedStyle(document.getElementById("main-flappy-bird")).getPropertyValue("grid-template-rows").split(" ")[1].replace("px", ""))
-            }
+            // if (state.game.game_height == null) {
+            state_current.game.top_offset = parseInt(getComputedStyle(document.getElementById("site-navigation")).getPropertyValue("height").replace("px", ""))
+            state_current.game.game_height = parseInt(getComputedStyle(document.getElementById("game-screen-flappy-bird")).getPropertyValue("height").replace("px", ""))
+            state_current.game.game_width = parseInt(getComputedStyle(document.getElementById("game-screen-flappy-bird")).getPropertyValue("width").replace("px", ""))
+            state_current.game.floor_offset = parseInt(getComputedStyle(document.getElementById("main-flappy-bird")).getPropertyValue("grid-template-rows").split(" ")[1].replace("px", ""))
+            // }
 
             if ((state.game.game_height + state.game.top_offset < (state.bird.height + state.bird.startHeight) || state.game.top_offset > (state.bird.height + state.bird.startHeight)) || (bird_hit_pipe(state))) {
                 console.log("You lost the game: flappy-bird")
@@ -122,7 +122,7 @@ function rootReducer(state = initialState, action) {
             }
         }
         case 'piping/add_new': {
-            const [heights_new, x_offset_new] = add_new_pipe(state.piping , state.game);
+            const [heights_new, x_offset_new] = add_new_pipe(state.piping, state.game);
             return {
                 ...state,
                 piping: {
