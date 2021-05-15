@@ -9,6 +9,7 @@ export default function Menu() {
     const dispatch = useDispatch()
 
     const newGame = () => {
+
         let intervalId = setInterval(() => {
             dispatch({type: 'game/update'})
             dispatch({type: 'bird/falling'})

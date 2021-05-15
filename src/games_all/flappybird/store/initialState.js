@@ -3,6 +3,10 @@ export default {
         status: 'menu',
         interval: 22,
         interval_id: null,
+        game_height: null,
+        game_width: null,
+        top_offset: null,
+        floor_offset: null,
     },
     bird: {
         gravitation: 1.3,

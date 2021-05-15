@@ -4,6 +4,7 @@ import {Provider, useSelector} from 'react-redux'
 import store from "./flappybird/store/flappybird_store.js"
 import Menu from "./flappybird/menu";
 import Piping from "./flappybird/piping";
+import Floor from "./flappybird/floor";
 
 
 const selectStatusGame = state => state.game.status
@@ -22,14 +23,14 @@ export default function FlappyBird() {
 
         if (statusGame === 'playing') {
             return (
-                <div onClick={handler} className={"screen-flappy-bird"}>
+                <div onClick={handler} className={"screen-flappy-bird"} id={"game-screen-flappy-bird"}>
                     <Bird/>
                     <Piping/>
                 </div>
-            )
+        )
         } else if (statusGame === 'menu') {
             return (
-                <div className={"screen-flappy-bird"}>
+                <div className={"screen-flappy-bird"} id={"game-screen-flappy-bird"}>
                     <Menu/>
                 </div>
             )
@@ -38,7 +39,10 @@ export default function FlappyBird() {
 
     return (
         <Provider store={store}>
-            <Game/>
+            <div className={"window-flappy-bird"} id={"main-flappy-bird"}>
+                <Game/>
+                <Floor/>
+            </div>
         </Provider>
     )
 }

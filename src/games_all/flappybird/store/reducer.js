@@ -1,10 +1,11 @@
 // this is the main reducer
 import initialState from "./initialState"
 
-function add_new_pipe(piping) {
-    let random_height = Math.floor(Math.random() * (window.innerHeight - (2 * (piping.height_space + 65 + 70)))) + piping.height_space + 65 + 70;
-    // console.log(window.innerHeight, random_height)
-    return [piping.heights.concat(random_height), piping.x_offset.concat(window.innerWidth)]
+function add_new_pipe(piping, game) {
+    // const rand = min + Math.random() * (max - min);
+    let random_height = Math.floor(Math.random() * ((game.game_height-piping.height_space) - piping.height_space) + piping.height_space);
+    console.log(game.game_height, random_height, game.game_width)
+    return [piping.heights.concat(random_height), piping.x_offset.concat(game.game_width)]
 }
 
 function scroll_pipes(x_offset_array, offset) {
@@ -72,7 +73,14 @@ function rootReducer(state = initialState, action) {
             // copy of state
             let state_current = state
 
-            if ((window.innerHeight < (state.bird.height + state.bird.startHeight) || 65 > (state.bird.height + state.bird.startHeight)) || (bird_hit_pipe(state))) {
+            if (state.game.game_height == null) {
+                state_current.game.top_offset = parseInt(getComputedStyle(document.getElementById("site-navigation")).getPropertyValue("height").replace("px", ""))
+                state_current.game.game_height = parseInt(getComputedStyle(document.getElementById("game-screen-flappy-bird")).getPropertyValue("height").replace("px", ""))
+                state_current.game.game_width = parseInt(getComputedStyle(document.getElementById("game-screen-flappy-bird")).getPropertyValue("width").replace("px", ""))
+                state_current.game.floor_offset = parseInt(getComputedStyle(document.getElementById("main-flappy-bird")).getPropertyValue("grid-template-rows").split(" ")[1].replace("px", ""))
+            }
+
+            if ((state.game.game_height + state.game.top_offset < (state.bird.height + state.bird.startHeight) || state.game.top_offset > (state.bird.height + state.bird.startHeight)) || (bird_hit_pipe(state))) {
                 console.log("You lost the game: flappy-bird")
                 clearInterval(state.game.interval_id)
                 state_current.game.status = 'menu'
@@ -99,7 +107,7 @@ function rootReducer(state = initialState, action) {
             }
             // checking if to add a new pipe because distance is reached
             if (state_current.x_offset[state_current.x_offset.length - 1] < window.innerWidth - state.piping.space_between_pipes) {
-                const [heights_new, x_offset_new] = add_new_pipe(state_current)
+                const [heights_new, x_offset_new] = add_new_pipe(state_current, state.game)
                 state_current.x_offset = x_offset_new
                 state_current.heights = heights_new
             }
@@ -114,7 +122,7 @@ function rootReducer(state = initialState, action) {
             }
         }
         case 'piping/add_new': {
-            const [heights_new, x_offset_new] = add_new_pipe(state.piping);
+            const [heights_new, x_offset_new] = add_new_pipe(state.piping , state.game);
             return {
                 ...state,
                 piping: {

@@ -23,7 +23,7 @@ const navLinks = [
 
 export default function Navigation() {
     return (
-        <nav className="site-navigation">
+        <nav className="site-navigation" id={"site-navigation"}>
             <span>
                 <Icon />
                 <p> Niklas Games </p>
