@@ -15,8 +15,8 @@ export default function FractalTree() {
 
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
-        var gradient = ctx.createLinearGradient(ctx.canvas.width*0.2, ctx.canvas.height*0.5, ctx.canvas.width*0.8, ctx.canvas.height*0.5);
-        // var gradient = ctx.createRadialGradient(ctx.canvas.width*0.5, ctx.canvas.height*0.5, 50, ctx.canvas.width*0.5, ctx.canvas.height*0.5, 700);
+        // var gradient = ctx.createLinearGradient(ctx.canvas.width*0.2, ctx.canvas.height*0.5, ctx.canvas.width*0.8, ctx.canvas.height*0.5);
+        var gradient = ctx.createRadialGradient(ctx.canvas.width*0.5, ctx.canvas.height*0.5, 20, ctx.canvas.width*0.5, ctx.canvas.height*0.5, 300);
         gradient.addColorStop("0", "magenta");
         gradient.addColorStop("0.5" ,"blue");
         gradient.addColorStop("1.0", "red");

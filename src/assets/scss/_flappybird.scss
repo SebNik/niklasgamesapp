@@ -38,7 +38,7 @@
   top: 40%;
   left: 50%;
   margin: -100px 0 0 -100px;
-  width: 200px;
+  width: 250px;
   height: 200px;
   background-color: lightslategrey;
   border-radius: 20px;
@@ -46,9 +46,11 @@
 
   button{
     text-align: center;
-    margin: 30px auto;
+    border: none;
+    border-radius: 10px;
+    margin: 20px auto;
     background-color: lightcyan;
-    font-size: 15px;
+    font-size: 23px;
   }
 }
 
