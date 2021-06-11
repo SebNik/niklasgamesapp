@@ -16,7 +16,7 @@ export default function Pipe(props) {
 
 
     let style_upper = {
-        transform: `translate(${x_offset}px, 0px)`,
+        transform: `translate(${x_offset}px, 0px) rotate(180deg)`,
         height: `${height}px`
     }
 

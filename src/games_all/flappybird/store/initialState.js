@@ -9,8 +9,8 @@ export default {
         floor_offset: null,
     },
     bird: {
-        gravitation: 0.4,
-        fly_up_speed: -8,
+        gravitation: 0.25,
+        fly_up_speed: -6,
         // gravitation: 0.00001,
         // fly_up_speed: 0.00001,
         status: 'normal',
@@ -24,5 +24,6 @@ export default {
         x_offset: [],
         heights: [],
         scroll_speed: -1.5,
+        // scroll_speed: -0.1,
     }
 }
