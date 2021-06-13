@@ -26,7 +26,7 @@ export default function Navigation() {
         <nav className="site-navigation" id={"site-navigation"}>
             <span>
                 <Icon />
-                <p> Niklas Games </p>
+                <p> Niklas & Timos Games </p>
             </span>
             <ul>
                 {navLinks.map((link, index) => (
