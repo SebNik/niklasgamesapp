@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import produce from 'immer'; 
 
+// setting up the basic grid
 const numRows = 50;
 const numCols = 50;
 
@@ -8,7 +9,7 @@ const numCols = 50;
 // - i und k sind die beiden Koordianten
 
 
-//beschreibt die Koordinaten von den Nachbarn z.b. 1, 0 ist der östliche Nachbar
+// beschreibt die Koordinaten von den Nachbarn z.b. 1, 0 ist der östliche Nachbar
 const operations = [
   [0, 1],
   [0, -1],
@@ -21,29 +22,30 @@ const operations = [
 ]
 
 function Gameoflife() {
- const [grid, setGrid] = useState (()  => {
-  const rows = [];
-  for (let i = 0; i < numRows; i++) {
-    rows.push(Array.from(Array(numCols), () => 0 )) 
-  }
 
-  return rows;
- });
+  // Aufbau Grid: erst die Reihen, dann die
+  const [grid, setGrid] = useState (()  => {
+    const rows = [];
+    for (let i = 0; i < numRows; i++) {
+      rows.push(Array.from(Array(numCols), () => 0 )) 
+    }
+    return rows;
+  });
 
  // console.log(grid);
 
  const [running, setRunning] = useState(false);
 
-const runningRef = useRef(running);
-runningRef.current= running
+  const runningRef = useRef(running);
+  runningRef.current= running
 
- const runSimulation = useCallback(() => {
-  if(!runningRef.current) {
-    return;
-  }
-  // Simulation ab hier
+  const runSimulation = useCallback(() => {
+    if(!runningRef.current) {
+      return;
+    }
+    // Simulation ab hier
 
-  //geht durch jede Zelle
+    //geht durch jede Zelle
   setGrid((g) => {
     return produce(g, gridCopy => {
         for (let i = 0; i < numRows; i++) {
@@ -72,7 +74,7 @@ runningRef.current= running
   const newGrid = produce;
   
 
-  setTimeout(runSimulation, 100);
+  setTimeout(runSimulation, 30);
  }, [])
 
   return (
@@ -103,7 +105,7 @@ runningRef.current= running
 
                 style= {{
                   width:20, height: 20, 
-                  backgroundColor: grid[i][k] ? 'blue' :  undefined,
+                  backgroundColor: grid[i][k] ? 'black' :  "white",
                   border : "solid 1px #bcbcbc"
                 }}
               />
