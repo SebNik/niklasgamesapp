@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
     game: {
         status: 'menu',
@@ -7,12 +8,13 @@ export default {
         game_width: null,
         top_offset: null,
         floor_offset: null,
+        score: 0,
     },
     bird: {
-        gravitation: 0.25,
-        fly_up_speed: -6,
-        // gravitation: 0.00001,
-        // fly_up_speed: 0.00001,
+        //gravitation: 0.25,
+        //fly_up_speed: -6,
+        gravitation: 0.00001,
+        fly_up_speed: 0.00001,
         status: 'normal',
         height: 0,
         startHeight: 188,
@@ -23,7 +25,7 @@ export default {
         height_space: 200,
         x_offset: [],
         heights: [],
-        scroll_speed: -1.5,
-        // scroll_speed: -0.1,
+        //scroll_speed: -1.5,
+        scroll_speed: -0.1,
     }
 }
