@@ -65,7 +65,8 @@ function rootReducer(state = initialState, action) {
                 game: {
                     ...state.game,
                     status: 'playing',
-                    interval_id: action.payload
+                    interval_id: action.payload,
+                    score: 0,
                 }
             }
         }
