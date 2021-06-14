@@ -75,13 +75,14 @@ function Gameoflife() {
     const newGrid = produce;
   
 
-  setTimeout(runSimulation, 30);
+  setTimeout(runSimulation, 50);
   }, [])
 
   return (
     <div>
-
+      <div className="menu">
       <button
+        className="button"
         onClick ={() => {
           setRunning(!running); //wenn man clickt wird der Burron zum gegenteil von 'running'
             if (!running) {
@@ -90,10 +91,12 @@ function Gameoflife() {
           }   
         }}
       >
-        {running ? 'stop' : 'start' }
+        {running ? 'Stop' : 'Start' }
       </button>
 
       <button 
+      
+      className="button"
         onClick={ ()  => {
           setGrid(generateEmptyGrid());
       }}>
@@ -101,6 +104,8 @@ function Gameoflife() {
       </button>
 
       <button
+      
+      className="button"
         onClick={()  => {
           const rows = [];
           for (let i = 0; i < numRows; i++) {
@@ -110,8 +115,9 @@ function Gameoflife() {
       }}>
       Random
       </button>
-
+      </div>
       <div
+        className="body"
         style= {{
           display: 'grid',
           gridTemplateColumns:`repeat(${numCols}, 20px )`
