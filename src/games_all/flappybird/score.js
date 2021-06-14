@@ -10,7 +10,7 @@ export default function Score() {
     return (
         <div className={"score-flappy-bird"}>
             <p>
-            Score: {score}
+                Score: {score}
             </p>
         </div>
     )
