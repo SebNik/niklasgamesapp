@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useRef } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import produce from 'immer'; 
 
 // setting up the basic grid
@@ -19,18 +19,20 @@ const operations = [
   [-1, 1],
   [1, 0],
   [-1, 0],
-]
+];
+
+const generateEmptyGrid = () => {
+  const rows = [];
+  for (let i = 0; i < numRows; i++) {
+    rows.push(Array.from(Array(numCols), () => 0 )) 
+  }
+  return rows;
+};
 
 function Gameoflife() {
-
-  // Aufbau Grid: erst die Reihen, dann die
-  const [grid, setGrid] = useState (()  => {
-    const rows = [];
-    for (let i = 0; i < numRows; i++) {
-      rows.push(Array.from(Array(numCols), () => 0 )) 
-    }
-    return rows;
-  });
+ const [grid, setGrid] = useState (()  => {
+  return generateEmptyGrid();
+ });
 
  // console.log(grid);
 
@@ -88,6 +90,22 @@ function Gameoflife() {
           }   
         }}
       >{running ? 'stop' : 'start' }</button>
+
+      <button onClick={ ()  => {
+        setGrid(generateEmptyGrid());
+      }}>Clear</button>
+
+
+      <button onClick={()  => {
+                const rows = [];
+          for (let i = 0; i < numRows; i++) {
+            rows.push(Array.from(Array(numCols), () => Math.random() > 0.5 ? 1 : 0 )) 
+          }
+          setGrid(rows);  
+      }}>
+      Random</button>
+
+
         <div style= {{
           display: 'grid',
           gridTemplateColumns:`repeat(${numCols}, 20px )`
