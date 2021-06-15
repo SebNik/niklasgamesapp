@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useRef } from "react";
-import produce from 'immer'; 
+import produce from 'immer';
 
 // setting up the basic grid
 const numRows = 50;
@@ -47,6 +47,7 @@ function Gameoflife() {
     }
     // Simulation ab hier
 
+    
     //geht durch jede Zelle
     setGrid((g) => {
     return produce(g, gridCopy => {
@@ -73,7 +74,6 @@ function Gameoflife() {
     });
 
     const newGrid = produce;
-  
 
   setTimeout(runSimulation, 50);
   }, [])
