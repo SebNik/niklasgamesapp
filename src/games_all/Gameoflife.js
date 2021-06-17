@@ -1,5 +1,9 @@
 import React, { useCallback, useState, useRef } from "react";
 import produce from 'immer';
+import Grid from './gameoflife/grid';
+import OnOf from './gameoflife/onofbutton';
+import Clear from "./gameoflife/clear";
+import Random from "./gameoflife/random";
 
 // setting up the basic grid
 const numRows = 50;
@@ -81,68 +85,28 @@ function Gameoflife() {
   return (
     <div>
       <div className="menu">
-      <button
-        className="button"
-        onClick ={() => {
-          setRunning(!running); //wenn man clickt wird der Burron zum gegenteil von 'running'
-            if (!running) {
-              runningRef.current = true;
-            runSimulation();
-          }   
-        }}
-      >
-        {running ? 'Stop' : 'Start' }
-      </button>
+        <OnOf 
+        setRunning={setRunning}
+        running={running}
+        runningRef = {runningRef}
+        runSimulation = {runSimulation}>
+        </OnOf>       
 
-      <button 
-      
-      className="button"
-        onClick={ ()  => {
-          setGrid(generateEmptyGrid());
-      }}>
-          Clear
-      </button>
+        <Clear
+        setGrid = {setGrid}
+        generateEmptyGrid = {generateEmptyGrid}> 
+        </Clear>
 
-      <button
+        <Random
+        numRows={numRows}
+        numCols={numCols}
+        setGrid={setGrid}>
+        </Random>
+        
+        
+      </div>
       
-      className="button"
-        onClick={()  => {
-          const rows = [];
-          for (let i = 0; i < numRows; i++) {
-            rows.push(Array.from(Array(numCols), () => Math.random() > 0.5 ? 1 : 0 )) 
-          }
-          setGrid(rows);  
-      }}>
-      Random
-      </button>
-      </div>
-      <div
-        className="body"
-        style= {{
-          display: 'grid',
-          gridTemplateColumns:`repeat(${numCols}, 20px )`
-        }}
-      >
-        {grid.map((rows, i) => 
-          rows.map((col, k) => (
-            <div
-              key = {`${i}-${k}`}
-              onClick= { () => {
-                const newGrid = produce ( grid, gridCopy => {
-                  gridCopy[i][k] = grid[i][k] ? 0 : 1; // Zelle tot -> Lebendig; Zelle Lebendig -> Tot
-                })
-                setGrid(newGrid);
-              }}
-              style= {{
-                width:20, 
-                height: 20, 
-                backgroundColor: grid[i][k] ? 'black' :  "white",
-                border : "solid 1px #bcbcbc"
-              }}
-              />
-          ))
-        )}
-      </div>
+      <Grid numCols={numCols} grid={grid} setGrid={setGrid}></Grid>
 
     </div>
   );
