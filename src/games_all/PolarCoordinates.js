@@ -6,12 +6,17 @@ export default function PolarCoordinates() {
 
     const draw = (ctx, data) => {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        ctx.beginPath()
         ctx.lineWidth = 2.2;
-        function drawLine(x1, y1, x2, y2){
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
+
+        let r = 200;
+
+        for (let a=0; a < Math.PI*2; a+=0.5){
+            let x = r * Math.cos(a)
+            let y = r * Math.sin(a)
+            ctx.lineTo(x,y)
         }
-        drawLine(0,0,100,100)
+        ctx.closePath()
         ctx.stroke();
     }
 
