@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+// simple default values added in the state
 export default {
     game: {
         status: 'menu',
