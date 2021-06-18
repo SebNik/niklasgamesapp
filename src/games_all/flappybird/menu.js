@@ -1,11 +1,16 @@
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
+import Score from './score';
 
 const selectInterval = state => state.game.interval
+const selectScore = state => state.game.score
+
 
 export default function Menu() {
 
     const interval = useSelector(selectInterval)
+    const score = useSelector(selectScore)
+
     const dispatch = useDispatch()
 
     const newGame = () => {
@@ -23,6 +28,7 @@ export default function Menu() {
     return (
         <div className={"menu-flappy-bird"}>
             <button onClick={newGame}>New Game</button>
+            <p>Score: {score}</p>
         </div>
     )
 }

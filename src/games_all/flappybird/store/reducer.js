@@ -1,11 +1,12 @@
 // this is the main reducer
 import initialState from "./initialState"
+import uniqid from 'uniqid'
 
 function add_new_pipe(piping, game) {
     // const rand = min + Math.random() * (max - min);
     let random_height = Math.floor(Math.random() * ((game.game_height - piping.height_space - 50) - piping.height_space)) + piping.height_space;
     console.log(game.game_height, random_height, game.game_width)
-    return [piping.heights.concat(random_height), piping.x_offset.concat(game.game_width)]
+    return [piping.heights.concat(random_height), piping.x_offset.concat(game.game_width), piping.pipes_id.concat(uniqid())]
 }
 
 function scroll_pipes(x_offset_array, offset) {
@@ -64,7 +65,8 @@ function rootReducer(state = initialState, action) {
                 game: {
                     ...state.game,
                     status: 'playing',
-                    interval_id: action.payload
+                    interval_id: action.payload,
+                    score: 0,
                 }
             }
         }
@@ -80,6 +82,14 @@ function rootReducer(state = initialState, action) {
             state_current.game.floor_offset = parseInt(getComputedStyle(document.getElementById("main-flappy-bird")).getPropertyValue("grid-template-rows").split(" ")[1].replace("px", ""))
             // }
 
+            // checking if a pipe passed the bird an adding it to the score
+            for (var i = 0; i < state.piping.pipes_id.length; i++) {
+                if ((state.piping.x_offset[i] < (state_current.game.game_width/2)) && (!state.piping.pipes_passed_id.includes(state.piping.pipes_id[i]))) {
+                    state_current.piping.pipes_passed_id.push(state.piping.pipes_id[i])
+                    state_current.game.score += 1
+                }
+            } 
+            
             if ((state.game.game_height + state.game.top_offset < (state.bird.height + state.bird.startHeight) || state.game.top_offset > (state.bird.height + state.bird.startHeight)) || (bird_hit_pipe(state))) {
                 console.log("You lost the game: flappy-bird")
                 clearInterval(state.game.interval_id)
@@ -104,12 +114,15 @@ function rootReducer(state = initialState, action) {
                 // console.log('Removing a Pipe 0')
                 state_current.x_offset.shift()
                 state_current.heights.shift()
+                const id = state_current.pipes_id.shift()
+                state_current.pipes_passed_id = state_current.pipes_passed_id.filter(item => item !== id)
             }
             // checking if to add a new pipe because distance is reached
             if (state_current.x_offset[state_current.x_offset.length - 1] < window.innerWidth - state.piping.space_between_pipes) {
-                const [heights_new, x_offset_new] = add_new_pipe(state_current, state.game)
+                const [heights_new, x_offset_new, id_pipes] = add_new_pipe(state_current, state.game)
                 state_current.x_offset = x_offset_new
                 state_current.heights = heights_new
+                state_current.pipes_id = id_pipes
             }
             // making the scroll for all the pipes
             // adding the scroll to current
@@ -122,13 +135,14 @@ function rootReducer(state = initialState, action) {
             }
         }
         case 'piping/add_new': {
-            const [heights_new, x_offset_new] = add_new_pipe(state.piping, state.game);
+            const [heights_new, x_offset_new, id_pipes] = add_new_pipe(state.piping, state.game);
             return {
                 ...state,
                 piping: {
                     ...state.piping,
                     heights: heights_new,
                     x_offset: x_offset_new,
+                    pipes_id: id_pipes,
                 }
             }
         }

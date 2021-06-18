@@ -1,4 +1,5 @@
 import React from "react";
+import Score from "./flappybird/score";
 import Bird from "./flappybird/bird";
 import {Provider, useSelector} from 'react-redux'
 import store from "./flappybird/store/flappybird_store.js"
@@ -26,6 +27,7 @@ export default function FlappyBird() {
                 <div onClick={handler} className={"screen-flappy-bird"} id={"game-screen-flappy-bird"}>
                     <Bird/>
                     <Piping/>
+                    <Score></Score>
                 </div>
         )
         } else if (statusGame === 'menu') {

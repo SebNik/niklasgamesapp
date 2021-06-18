@@ -57,6 +57,27 @@
     background-color: lightcyan;
     font-size: 23px;
   }
+
+  p {
+    font-size: 23px;
+    margin: 0% auto;
+    text-align: center;
+  }
+}
+
+.score-flappy-bird {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  position: absolute;
+  top: 15%;
+  box-shadow: 1px 1px 4px black;
+  left: 3%;
+  background-color: #ff0000;
+  
+  p {
+    text-align: center;
+  }
 }
 
 .pipe-upper-flappy-bird {
