@@ -1,11 +1,11 @@
 import React, { useCallback, useState, useRef } from "react";
 import produce from 'immer';
-import Slider from '@material-ui/core/Slider';
+// import Slider from '@material-ui/core/Slider';
 import Grid from './gameoflife/grid';
 import OnOf from './gameoflife/onofbutton';
 import Clear from "./gameoflife/clear";
 import Random from "./gameoflife/random";
-import { SpeedSlider } from "./gameoflife/slider";
+import { SpeedSlider  } from "./gameoflife/slider";
 
 // setting up the basic grid
 const numRows = 41;
@@ -83,7 +83,9 @@ function Gameoflife() {
 
     const newGrid = produce;
 
-  setTimeout(runSimulation, speed );
+  var newspeed = document.getElementById('newspeed').value; 
+  setTimeout(runSimulation, newspeed );
+  console.log(newspeed);
   }, [])
 
   return (
@@ -120,8 +122,9 @@ function Gameoflife() {
       <Grid
         numCols={numCols}
         grid={grid}
-        setGrid={setGrid}>
+        setGrid={setGrid}  >      
       </Grid>
+
 
     </div>
   );

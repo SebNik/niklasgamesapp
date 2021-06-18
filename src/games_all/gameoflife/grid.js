@@ -23,7 +23,7 @@ export default function Grid(props) {
               style= {{
                 width:20, 
                 height: 20, 
-                backgroundColor: props.grid[i][k] ? 'black' :  "white",
+                backgroundColor: props.grid[i][k] ? "#005CC8" :  "transparent",
                 border : "solid 1px #bcbcbc"
               }}
               />

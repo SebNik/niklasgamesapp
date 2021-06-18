@@ -11,16 +11,17 @@ const SpeedSlider = ({
    // const [speed, setSpeed] = useState(initialSpeed);
     const handleChange = event => {
         setSpeed(event.target.value);
-        console.log(speed);
+        console.log(speed); 
     };
 
 
     return (
         <>
-      
         <input
         type="range"
         className="slider"
+        name="mySlider"
+        id="newspeed"
         min={minSpeed}
         max={maxSpeed}
         value={speed}
