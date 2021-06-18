@@ -25,9 +25,9 @@ export const navLinks = [
         component: 'Gameoflife'
     },
     {
-        title: 'Test1',
-        path: '/games/test1',
-        component: 'Clicker'
+        title: 'PolarSystem',
+        path: '/games/polar_coordinates',
+        component: 'PolarCoordinates'
     },
     {
         title: 'Test2',
