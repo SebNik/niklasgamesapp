@@ -1,17 +1,18 @@
 import React, { useCallback, useState, useRef } from "react";
 import produce from 'immer';
+import Slider from '@material-ui/core/Slider';
 import Grid from './gameoflife/grid';
 import OnOf from './gameoflife/onofbutton';
 import Clear from "./gameoflife/clear";
 import Random from "./gameoflife/random";
+import { SpeedSlider } from "./gameoflife/slider";
 
 // setting up the basic grid
-const numRows = 50;
+const numRows = 41;
 const numCols = 50;
 
 // GOOD TO KNOW
 // - i und k sind die beiden Koordianten
-
 
 // beschreibt die Koordinaten von den Nachbarn z.b. 1, 0 ist der östliche Nachbar
 const operations = [
@@ -34,6 +35,9 @@ const generateEmptyGrid = () => {
 };
 
 function Gameoflife() {
+
+  const [speed, setSpeed] = useState(100);
+
   const [grid, setGrid] = useState (()  => {
     return generateEmptyGrid();
   });
@@ -79,37 +83,49 @@ function Gameoflife() {
 
     const newGrid = produce;
 
-  setTimeout(runSimulation, 50);
+  setTimeout(runSimulation, speed );
   }, [])
 
   return (
     <div>
       <div className="menu">
         <OnOf 
-        setRunning={setRunning}
-        running={running}
-        runningRef = {runningRef}
-        runSimulation = {runSimulation}>
+          setRunning={setRunning}
+          running={running}
+          runningRef = {runningRef}
+          runSimulation = {runSimulation}>
         </OnOf>       
 
         <Clear
-        setGrid = {setGrid}
-        generateEmptyGrid = {generateEmptyGrid}> 
+          setGrid = {setGrid}
+          generateEmptyGrid = {generateEmptyGrid}> 
         </Clear>
 
         <Random
-        numRows={numRows}
-        numCols={numCols}
-        setGrid={setGrid}>
+          numRows={numRows}
+          numCols={numCols}
+          setGrid={setGrid}>
         </Random>
-        
+
+        <SpeedSlider
+        initialSpeed={200}
+        minSpeed={50}
+        maxSpeed={1000}
+        speed={speed}
+        setSpeed={setSpeed}>
+        </SpeedSlider>
         
       </div>
       
-      <Grid numCols={numCols} grid={grid} setGrid={setGrid}></Grid>
+      <Grid
+        numCols={numCols}
+        grid={grid}
+        setGrid={setGrid}>
+      </Grid>
 
     </div>
   );
+  
 };
 
 export default Gameoflife;

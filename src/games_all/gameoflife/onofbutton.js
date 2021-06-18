@@ -6,7 +6,7 @@ return (
     <div
     className="button"
         onClick ={() => {
-          props.setRunning(!props.running); //wenn man clickt wird der Burron zum gegenteil von 'running'
+          props.setRunning(!props.running); //wenn man clickt wird der Button zum gegenteil von 'running'
             if (!props.running) {
               props.runningRef.current = true;
             props.runSimulation();
