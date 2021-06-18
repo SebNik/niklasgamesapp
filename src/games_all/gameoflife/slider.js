@@ -11,7 +11,7 @@ const SpeedSlider = ({
    // const [speed, setSpeed] = useState(initialSpeed);
     const handleChange = event => {
         setSpeed(event.target.value);
-        console.log(speed); 
+        //console.log(speed); 
     };
 
 

@@ -1,11 +1,11 @@
-import React, { useCallback, useState, useRef } from "react";
+import React, { useCallback, useState, useRef, useEffect } from "react";
 import produce from 'immer';
-// import Slider from '@material-ui/core/Slider';
+import Slider from '@material-ui/core/Slider';
 import Grid from './gameoflife/grid';
 import OnOf from './gameoflife/onofbutton';
 import Clear from "./gameoflife/clear";
 import Random from "./gameoflife/random";
-import { SpeedSlider  } from "./gameoflife/slider";
+import { SpeedSlider } from "./gameoflife/slider";
 
 // setting up the basic grid
 const numRows = 41;
@@ -37,7 +37,7 @@ const generateEmptyGrid = () => {
 function Gameoflife() {
 
   const [speed, setSpeed] = useState(100);
-
+  let timer1;
   const [grid, setGrid] = useState (()  => {
     return generateEmptyGrid();
   });
@@ -79,14 +79,17 @@ function Gameoflife() {
           }
         }
       });
-    });
-
-    const newGrid = produce;
-
-  var newspeed = document.getElementById('newspeed').value; 
-  setTimeout(runSimulation, newspeed );
-  console.log(newspeed);
+    })
   }, [])
+
+  // this is a effect wich calls the interval again when it changes
+  useEffect(() => {
+    timer1 = setTimeout(runSimulation, speed);
+      return () => {
+        clearTimeout(timer1);
+      };
+  })
+
 
   return (
     <div>
@@ -112,7 +115,7 @@ function Gameoflife() {
         <SpeedSlider
         initialSpeed={200}
         minSpeed={50}
-        maxSpeed={1000}
+        maxSpeed={10000}
         speed={speed}
         setSpeed={setSpeed}>
         </SpeedSlider>
@@ -122,9 +125,8 @@ function Gameoflife() {
       <Grid
         numCols={numCols}
         grid={grid}
-        setGrid={setGrid}  >      
+        setGrid={setGrid}>
       </Grid>
-
 
     </div>
   );
