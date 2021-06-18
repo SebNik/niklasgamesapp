@@ -11,12 +11,13 @@ export default function PolarCoordinates() {
 
         let r = 200;
 
-        for (let a=0; a < Math.PI*2; a+=0.5){
-            let x = r * Math.cos(a)
-            let y = r * Math.sin(a)
-            ctx.lineTo(x,y)
+        for (let a=0; a < Math.PI*2; a+=0.1){
+            let r1 = r + Math.floor(Math.random() * (50 - -50) ) + -50;
+            let x = r1 * Math.cos(a);
+            let y = r1 * Math.sin(a);
+            ctx.lineTo(x,y);
         }
-        ctx.closePath()
+        ctx.closePath();
         ctx.stroke();
     }
 
