@@ -1,5 +1,6 @@
 import React from 'react';
 import Canvas from './polar_coordinates/canvas';
+import Menu from './polar_coordinates/menu';
 
 export default function PolarCoordinates() {
 
@@ -24,7 +25,7 @@ export default function PolarCoordinates() {
 
     return (
         <div className={"polar-coordinates-screen"}>
-            <p>Test</p>
+            <Menu/>
             <Canvas draw={draw}/>
         </div>
     );
