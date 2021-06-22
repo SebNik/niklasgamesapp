@@ -114,8 +114,8 @@ function Gameoflife() {
 
         <SpeedSlider
         initialSpeed={200}
-        minSpeed={50}
-        maxSpeed={10000}
+        minSpeed={20}
+        maxSpeed={1000}
         speed={speed}
         setSpeed={setSpeed}>
         </SpeedSlider>
