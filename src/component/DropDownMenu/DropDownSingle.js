@@ -1,10 +1,22 @@
-import React, {useEffect, useRef} from 'react'
+import React, { Component } from 'react'
 
-const DropDownSingle = props => {
+class DropDownSingle extends Component {
     
-    return (
-        <p>Test DropDwon</p>
-    )
+    constructor(props){
+        super(props)
+        this.state = {
+          isListOpen: false,
+          headerTitle: this.props.title
+        }
+    }
+
+    render () {
+        const { isListOpen, headerTitle } = this.state;
+
+        return (
+            <p>{headerTitle}</p>
+        )
+    }
 }
 
 export default DropDownSingle

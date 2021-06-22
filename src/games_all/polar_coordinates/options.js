@@ -1,42 +1,38 @@
-export const navLinks = [
+export const options_polar_coordinates = [
     {
-        title: 'TicTacToe',
-        path: '/games/tictactoe',
-        component: 'Tictactoe'
+        id: 1,
+        title: 'Test1',
+        selected: false,
+        key: 'game'
     },
     {
-        title: 'Clicker',
-        path: '/games/Clicker',
-        component: 'Clicker'
-    },
-    {
-        title: 'FlappyBird',
-        path: '/games/flappybird',
-        component: 'flappybird'
-    },
-    {
-        title: 'FractalTree',
-        path: '/games/fractaltree',
-        component: 'FractalTree'
-    },
-    {
-        title: 'GameOfLife',
-        path: '/games/gameoflife',
-        component: 'Gameoflife'
-    },
-    {
-        title: 'PolarSystem',
-        path: '/games/polar_coordinates',
-        component: 'PolarCoordinates'
-    },
-    {
+        id: 2,
         title: 'Test2',
-        path: '/games/test2',
-        component: 'Clicker'
+        selected: false,
+        key: 'game'
     },
     {
+        id: 3,
         title: 'Test3',
-        path: '/games/test1',
-        component: 'Clicker'
+        selected: false,
+        key: 'game'
+    },
+    {
+        id: 4,
+        title: 'Test4',
+        selected: false,
+        key: 'game'
+    },
+    {
+        id: 5,
+        title: 'Test5',
+        selected: false,
+        key: 'game'
+    },
+    {
+        id: 6,
+        title: 'Test6',
+        selected: false,
+        key: 'game'
     },
 ]
