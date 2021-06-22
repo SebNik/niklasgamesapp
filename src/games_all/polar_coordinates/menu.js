@@ -33,7 +33,7 @@ class Menu extends Component {
                     headerTitle="Select simulation"
                     list={this.state.game}
                     resetThenSet={this.resetThenSet}
-                ></DropDownSingle>
+                />
     
                 {/* Here are all the settings. With the variable number of input options, defined by the dropdown fields. */}
                 <form>

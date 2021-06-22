@@ -10,7 +10,7 @@ class DropDownSingle extends Component {
           headerTitle: this.props.title
         }
     }
-    ///*
+    
     static getDerivedStateFromProps(nextProps, prevState) {
         const { list, title } = nextProps;
         console.log(list)
@@ -23,7 +23,6 @@ class DropDownSingle extends Component {
         }
         return { headerTitle: title };
     }
-    //*/
 
     componentDidUpdate(){
         const { isListOpen } = this.state;
