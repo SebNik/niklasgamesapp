@@ -4,7 +4,16 @@ import { options_polar_coordinates } from './options'
 
 class Menu extends Component {
 
+    constructor(props){
+        super(props)
+        this.state = options_polar_coordinates
+        console.log(this.state[1])
+    }
+
+
     resetThenSet = (id, key) => {
+        console.log(key)
+        console.log(this.state)
         const temp = [...this.state[key]];
       
         temp.forEach((item) => item.selected = false);
@@ -22,7 +31,7 @@ class Menu extends Component {
                 {/* This is he first dropdown menu to set the general working enviroment we are currently in. */}
                 <DropDownSingle
                     headerTitle="Select simulation"
-                    list={options_polar_coordinates}
+                    list={this.state.game}
                     resetThenSet={this.resetThenSet}
                 ></DropDownSingle>
     

@@ -10,9 +10,10 @@ class DropDownSingle extends Component {
           headerTitle: this.props.title
         }
     }
-
-    static getDerivedStateFromProps(nextProps) {
+    ///*
+    static getDerivedStateFromProps(nextProps, prevState) {
         const { list, title } = nextProps;
+        console.log(list)
         const selectedItem = list.filter((item) => item.selected);
       
         if (selectedItem.length) {
@@ -21,6 +22,20 @@ class DropDownSingle extends Component {
           };
         }
         return { headerTitle: title };
+    }
+    //*/
+
+    componentDidUpdate(){
+        const { isListOpen } = this.state;
+      
+        setTimeout(() => {
+          if(isListOpen){
+            window.addEventListener('click', this.close)
+          }
+          else{
+            window.removeEventListener('click', this.close)
+          }
+        }, 0)
     }
 
     toggleList = () => {
