@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import FontAwesome from 'react-fontawesome';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { faCoffee, faUser } from "@fortawesome/free-solid-svg-icons";
 class DropDownSingle extends Component {
     
     constructor(props){
@@ -10,7 +10,7 @@ class DropDownSingle extends Component {
           headerTitle: this.props.title
         }
     }
-    
+
     static getDerivedStateFromProps(nextProps, prevState) {
         const { list, title } = nextProps;
         console.log(list)
@@ -59,6 +59,9 @@ class DropDownSingle extends Component {
 
         return (
             <div className="dd-wrapper">
+
+            <FontAwesomeIcon icon={faUser} />
+
             <button
                 type="button"
                 className="dd-header"
@@ -66,8 +69,8 @@ class DropDownSingle extends Component {
             >
                 <div className="dd-header-title">{headerTitle}</div>
                 {isListOpen
-                ? <FontAwesome name="angle-up" size="2x" />
-                : <FontAwesome name="angle-down" size="2x" />}
+                ? <p>UP</p>
+                : <p>DOWN</p>}
             </button>
             {isListOpen && (
                 <div
@@ -83,7 +86,7 @@ class DropDownSingle extends Component {
                     >
                     {item.title}
                     {' '}
-                    {item.selected && <FontAwesome name="check" />}
+                    {item.selected && <p>Check</p>}
                     </button>
                 ))}
                 </div>
