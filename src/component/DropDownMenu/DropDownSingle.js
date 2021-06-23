@@ -61,35 +61,37 @@ class DropDownSingle extends Component {
         return (
             <div className="dd-wrapper">
 
-            <button
-                type="button"
-                className="dd-header"
-                onClick={this.toggleList}
-            >
-                <div className="dd-header-title">{headerTitle}</div>
-                {isListOpen
-                ? <FontAwesomeIcon icon={faChevronUp} />
-                : <FontAwesomeIcon icon={faChevronDown} />}
-            </button>
-            {isListOpen && (
-                <div
-                role="list"
-                className="dd-list"
-                >
-                {list.map((item) => (
-                    <button
+                <button
                     type="button"
-                    className="dd-list-item"
-                    key={item.id}
-                    onClick={() => this.selectItem(item)}
+                    className="dd-header"
+                    onClick={this.toggleList}
+                >
+                    <div className="dd-header-title">{headerTitle}</div>
+                    {isListOpen
+                    ? <FontAwesomeIcon icon={faChevronUp} />
+                    : <FontAwesomeIcon icon={faChevronDown} />}
+                </button>
+                {isListOpen && (
+                    <div
+                    role="list"
+                    className="dd-list"
                     >
-                    {item.title}
-                    {' '}
-                    {item.selected && <FontAwesomeIcon icon={faCheck} />}
-                    </button>
-                ))}
-                </div>
-            )}
+                    {list.map((item) => (
+                        <button
+                        type="button"
+                        className="dd-list-item"
+                        key={item.id}
+                        onClick={() => this.selectItem(item)}
+                        >
+                        {item.title}
+                        {' '}
+                        {item.selected
+                        ? <FontAwesomeIcon icon={faCheck} />
+                        : <br></br>}
+                        </button>
+                    ))}
+                    </div>
+                )}
             </div>
         )
     }
