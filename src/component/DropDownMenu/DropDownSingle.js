@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faCoffee, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp, faChevronDown, faCheck } from '@fortawesome/free-solid-svg-icons'
+
 class DropDownSingle extends Component {
-    
+
     constructor(props){
         super(props)
         this.state = {
@@ -60,8 +61,6 @@ class DropDownSingle extends Component {
         return (
             <div className="dd-wrapper">
 
-            <FontAwesomeIcon icon={faUser} />
-
             <button
                 type="button"
                 className="dd-header"
@@ -69,8 +68,8 @@ class DropDownSingle extends Component {
             >
                 <div className="dd-header-title">{headerTitle}</div>
                 {isListOpen
-                ? <p>UP</p>
-                : <p>DOWN</p>}
+                ? <FontAwesomeIcon icon={faChevronUp} />
+                : <FontAwesomeIcon icon={faChevronDown} />}
             </button>
             {isListOpen && (
                 <div
@@ -86,7 +85,7 @@ class DropDownSingle extends Component {
                     >
                     {item.title}
                     {' '}
-                    {item.selected && <p>Check</p>}
+                    {item.selected && <FontAwesomeIcon icon={faCheck} />}
                     </button>
                 ))}
                 </div>
