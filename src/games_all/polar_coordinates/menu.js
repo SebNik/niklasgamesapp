@@ -7,13 +7,10 @@ class Menu extends Component {
     constructor(props){
         super(props)
         this.state = options_polar_coordinates
-        console.log(this.state[1])
     }
 
 
     resetThenSet = (id, key) => {
-        console.log(key)
-        console.log(this.state)
         const temp = [...this.state[key]];
       
         temp.forEach((item) => item.selected = false);
@@ -35,6 +32,8 @@ class Menu extends Component {
                     resetThenSet={this.resetThenSet}
                 />
     
+                <hr className={"polar-coordinates-line"}/>
+
                 {/* Here are all the settings. With the variable number of input options, defined by the dropdown fields. */}
                 <form>
                     <label for="fname">First input:</label><br/>
