@@ -42,5 +42,6 @@ export const options_polar_coordinates = {
                     selected: false,
                     key: 'game'
                 },
-    ]
+    ],
+    select: 0,
 }
