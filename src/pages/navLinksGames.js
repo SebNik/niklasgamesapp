@@ -15,19 +15,19 @@ export const navLinks = [
         component: 'flappybird'
     },
     {
-        title: 'FractalTree',
-        path: '/games/fractaltree',
-        component: 'FractalTree'
-    },
-    {
         title: 'GameOfLife',
         path: '/games/gameoflife',
         component: 'Gameoflife'
     },
     {
-        title: 'PolarSystem',
-        path: '/games/polar_coordinates',
-        component: 'PolarCoordinates'
+        title: 'TheCodingTrain',
+        path: '/games/the_coding_train',
+        component: 'TheCodingTrain'
+    },
+    {
+        title: 'Test1',
+        path: '/games/test1',
+        component: 'Clicker'
     },
     {
         title: 'Test2',
