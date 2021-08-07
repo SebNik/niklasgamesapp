@@ -1,8 +1,8 @@
 import React from 'react'
 import {useSelector} from "react-redux";
 
-import BirdHigh from "../../assets/images/flappy_bird/Bird_hoch.png"
-import BirdLow from "../../assets/images/flappy_bird/Bird_runter.png"
+import BirdHigh from "../../../assets/images/flappy_bird/Bird_hoch.png"
+import BirdLow from "../../../assets/images/flappy_bird/Bird_runter.png"
 
 const selectHeight = state => state.bird.height
 const selectSpeed = state => state.bird.speed_y
