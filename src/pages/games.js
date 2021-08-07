@@ -22,7 +22,7 @@ export default function Games() {
         <BrowserRouter>
             <Switch>
                 {navLinks.map((link, index) => {
-                    const Component = require(`../games_all/games/${link.component}`).default
+                    const Component = require(`../games_all${link.path_to_component}${link.component}`).default
                     return <Route key={index} exact strict path={link.path}> <Component/> </Route>
                 })}
                 <div className={"container-games"}>

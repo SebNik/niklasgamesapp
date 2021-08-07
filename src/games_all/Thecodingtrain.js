@@ -4,12 +4,11 @@ import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import {navLinks} from "./thecodingtrain/navLinksTheCodingTrain";
 
 
-export default function Games() {
+export default function Thecodingtrain() {
 
     function position(index, data) {
         let column_start = index - (Math.trunc(index / 4) * 4)
         let row_start = (Math.trunc(index / 4))
-        // TODO ADD the right image
         const image_im = require(`../assets/images/thecodingtrain_thumbnail/${data.title}.png`).default
         return {
             gridRow: `${row_start + 2} / ${row_start + 3}`,
