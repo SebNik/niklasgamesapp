@@ -1,8 +1,10 @@
-import React from 'react';
+import React, [const [state, setstate] = useState(initialState)] from 'react';
 import Canvas from './polar_coordinates/canvas';
 import Menu from './polar_coordinates/menu';
 
 export default function PolarCoordinates() {
+
+    const [count, setCount] = useState(0);
 
 
     const draw = (ctx, data) => {
